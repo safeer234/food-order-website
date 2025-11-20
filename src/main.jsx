@@ -55,12 +55,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-],
-
-{
-basename:"/food-order-website>",
-}
-);
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
