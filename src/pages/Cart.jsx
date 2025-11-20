@@ -25,7 +25,14 @@ function Cart() {
      
 
           </div>
-          <div className='flex gap-20 py-5'>
+         
+              
+            </div>
+         
+    
+        ))
+      )}
+       <div className='flex gap-20 py-5'>
          <p>Total count: {cartFoods.length}</p>
          <div className='px-90'>
           <button onClick={() =>dispatch(clearCart()) } className='bg-[#ef4444] duration-200 ease-in hover:bg-[#fca5a5] text-[white] p-1  text-center rounded-md w-20'>Clear All</button>
@@ -34,12 +41,6 @@ function Cart() {
          
 
       </div>
-              
-            </div>
-         
-    
-        ))
-      )}
       
 
 
