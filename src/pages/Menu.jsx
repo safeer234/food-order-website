@@ -28,7 +28,7 @@ function Menu() {
                 <span className="text-sm font-medium"> Availability </span>
                 <span className="transition-transform group-open:-rotate-180">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </span>
               </summary>
@@ -60,7 +60,7 @@ function Menu() {
                 <span className="text-sm font-medium"> Price </span>
                 <span className="transition-transform group-open:-rotate-180">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </span>
               </summary>
@@ -93,11 +93,11 @@ function Menu() {
         {/* Cart icon */}
         <div className="px-20">
           <Link to="/cart">
-          <div className=''>
-            <i className="bx bx-cart  text-[#57534e] text-3xl"></i>
+            <div className=''>
+              <i className="bx bx-cart  text-[#57534e] text-3xl"></i>
 
-          </div>
-            
+            </div>
+
           </Link>
         </div>
 
@@ -105,7 +105,7 @@ function Menu() {
       {/* food circle */}
 
       <div>
-       <FoodCircle />
+        <FoodCircle />
       </div>
       {/* foodcircle */}
 
@@ -122,8 +122,8 @@ function Menu() {
 
       </div>
       {/*  deals */}
-      
-      
+
+
 
     </div>
   )
