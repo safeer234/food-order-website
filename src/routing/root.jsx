@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import {useSelector, useDispatch } from 'react-redux';
-import { changeBg } from '../features/theme/themeSlice.jsx';
+import { changeBg } from '../features/toggle/ToggleSlice';
 
 
 function Root() {
