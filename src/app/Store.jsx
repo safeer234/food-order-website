@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from '../features/cart/CartSlice'
-import toggleReducer from '../features/theme/themeSlice'
+import toggleReducer from '../features/theme/themeSlice.jsx'
 import itemReducer from '../features/item/ItemSlice'
 
  const store = configureStore({
