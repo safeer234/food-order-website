@@ -133,11 +133,11 @@ function HotDeals() {
         
     ]
   return (
-   <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 scroll-smooth">
+   <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 scroll-smooth scrollbar-hide">
   {deals.map((deal) => (
     <div
       key={deal.id}
-      className=" snap-center bg-[#fef2f2] shadow-xl shadow-stone-300 text-[#57534e] p-4 rounded-3xl"
+      className=" dealscard snap-center bg-[#fef2f2] shadow-xl shadow-stone-300 text-[#57534e] p-4 rounded-3xl"
     >
       <DealsCard deal={deal} />
     </div>

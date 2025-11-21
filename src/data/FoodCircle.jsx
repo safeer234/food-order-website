@@ -105,7 +105,7 @@ function FoodCircle() {
   {foodCircle.map((item, index) => (
     <div 
       key={index} 
-      className="min-w-[120px] transition-transform duration-200 hover:-translate-y-2"
+      className="min-w-[120px]"
     >
       <FoodCircles foodCircle={item} />
     </div>
