@@ -133,17 +133,18 @@ function HotDeals() {
         
     ]
   return (
-    <div className='grid grid-cols-4   snap-x   gap-4 px-15'>
-{deals.map((deal, index) => {
-return(
-    <div className=' dealscard snap-center  bg-[#fef2f2] shadow-xl text-[#57534e]  h-100 shadow-stone-300 p-4 rounded-3xl'>
-        <DealsCard deal = {deal} key={index} />
-        </div>
-)
-
-})}
-      
+   <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 scroll-smooth">
+  {deals.map((deal) => (
+    <div
+      key={deal.id}
+      className=" snap-center bg-[#fef2f2] shadow-xl shadow-stone-300 text-[#57534e] p-4 rounded-3xl"
+    >
+      <DealsCard deal={deal} />
     </div>
+  ))}
+</div>
+
+   
   )
 }
 

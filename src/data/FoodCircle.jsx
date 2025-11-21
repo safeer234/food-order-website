@@ -101,17 +101,18 @@ function FoodCircle() {
 
     ]
   return (
-    <div className='grid gap-10 grid-cols-8 grid-rows-2 py- px-13 '>
-         {foodCircle.map((foodCircle, index) => {
-        return(
-            <div className='hover:translate-y-1.2'>
-                <FoodCircles foodCircle = {foodCircle} key={index} />
-            </div>
-        )
-
-      })}
-      
+ <div className="flex gap-6 overflow-x-auto scrollbar-hide py-10 px-13">
+  {foodCircle.map((item, index) => (
+    <div 
+      key={index} 
+      className="min-w-[120px] transition-transform duration-200 hover:-translate-y-2"
+    >
+      <FoodCircles foodCircle={item} />
     </div>
+  ))}
+</div>
+
+
   )
 }
 
