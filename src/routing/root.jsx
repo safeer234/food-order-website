@@ -5,6 +5,7 @@ import {useSelector, useDispatch } from 'react-redux';
 import { changeBg } from '../features/toggle/ToggleSlice';
 import { showLogin } from '../features/login and signup/LoginSlice';
 import LoginForm from '../components/LoginForm';
+import Footer from '../components/Footer';
 
 function Root() {
   const dispatch = useDispatch()
@@ -18,7 +19,7 @@ function Root() {
      
     <div className={toggleValue ? "dark" : ""}>
      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
-      <div hidden={!loginValue} className='bg-[white]  shadow-2xl w-100 h-100 text-center '>
+      <div hidden={!loginValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-90 h-94  '>
         <LoginForm />
 
       </div>
@@ -45,9 +46,7 @@ function Root() {
 <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
   <NavLink to='/menu'>Menu</NavLink>
 </li>
-<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/services'>Services</NavLink>
-</li>
+
 <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
   <NavLink to='/about'>About</NavLink>
 </li>
@@ -94,7 +93,6 @@ function Root() {
           <div className="lg:hidden bg-white shadow-lg p-5 space-y-5 text-center text-[#57534e]">
             <NavLink onClick={() => setIsOpen(false)} to="/home" className="block hover:text-[#ef4444]">Home</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/menu" className="block hover:text-[#ef4444]">Menu</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/services" className="block hover:text-[#ef4444]">Services</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/about" className="block hover:text-[#ef4444]">About</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/contact" className="block hover:text-[#ef4444]">Contact</NavLink>
 
@@ -116,6 +114,7 @@ function Root() {
 
 
       </div>
+      <Footer />
 
       
       

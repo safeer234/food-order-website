@@ -9,7 +9,6 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import Root from './routing/root.jsx';
 import Home from './pages/Home.jsx';
 import Menu from './pages/Menu.jsx';
-import Services from './Services.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import Cart from './pages/Cart.jsx';
@@ -34,11 +33,7 @@ const router = createBrowserRouter([
         element: <Menu />
         
       },
-       {
-        path: "/services",
-        element: <Services />
-        
-      },
+       
       {
         path: "/about",
         element: <About />
