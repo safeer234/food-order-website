@@ -17,9 +17,9 @@ function Home() {
                     <h1 className='text-5xl sm:text-4xl md:text-7xl lg:text-6xl text-[#ef4444] font-semibold'>All Fast Food is<br />Available at <span className='text-[#57534e]'>Serve</span>It</h1><br />
                     <p className='text-[#57534e] text-md sm:text-md md:text-2xl lg:text-sm '>We are just a click away when you<br /> crave for Delicious Fast Food</p><br />
                     <div className='flex gap-5'>
-                        <Link to='/menu'> <button className=' text-md sm:text-xl md:text-xl lg:text-lg text-[white] flex text-center items-center justify-center rounded-3xl bg-[#ef4444] w-29 h-10 md:w-35 md:h-12  lg:w-29 lg:h-10 py-2 cursor-pointer duration-300  ease-in hover:border-2 hover:bg-[white] hover:text-[#57534e] hover:border-[#ef4444]'>Buy Now</button></Link>
+                        <Link to='/menu'> <button className=' buybtn text-md sm:text-xl md:text-xl lg:text-lg text-[white] flex text-center items-center justify-center rounded-3xl bg-[#ef4444] w-29 h-10 md:w-35 md:h-12  lg:w-29 lg:h-10 py-2 cursor-pointer duration-300  ease-in hover:border-2 hover:bg-[white] hover:text-[#57534e] hover:border-[#ef4444]'>Buy Now</button></Link>
 
-                        <Link to='/contact'><button className=' text-md sm:text-xl md:text-xl lg:text-lg  text-[#57534e] flex text-center items-center justify-center rounded-3xl border-2 border-[#ef4444] w-29 h-10 md:w-35 md:h-12  lg:w-29 lg:h-10 py-2 cursor-pointer duration-300 ease-out hover:bg-[#ef4444] hover:text-[white] hover:border-0'>Contact Us</button></Link>
+                        <Link to='/contact'><button className=' contactbtn text-md sm:text-xl md:text-xl lg:text-lg  text-[#57534e] flex text-center items-center justify-center rounded-3xl border-2 border-[#ef4444] w-29 h-10 md:w-35 md:h-12  lg:w-29 lg:h-10 py-2 cursor-pointer duration-300 ease-out hover:bg-[#ef4444] hover:text-[white] hover:border-0'>Contact Us</button></Link>
 
                     </div>
 
@@ -29,7 +29,7 @@ function Home() {
 
 
                 <div className='py-20'>
-                    <img className='w-300 h-100 sm:w-300 sm:h-100 md:w-300 md:h-100 lg:h-110 lg:w-160' src={homeimg1} alt="" />
+                    <img className=' mainimg w-300 h-100 sm:w-300 sm:h-100 md:w-300 md:h-100 lg:h-110 lg:w-160' src={homeimg1} alt="" />
 
                 </div>
             </div>
@@ -105,7 +105,7 @@ function Home() {
 
                 <div className='flex gap-40 px-15 text-center mb-10'>
                     <div>
-                        <img className='w-90 h-60' src={homefoodimg1} alt="" />
+                        <img className='burgerimg w-90 h-60' src={homefoodimg1} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Burger</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
@@ -124,7 +124,7 @@ function Home() {
                     </div>
 
                     <div>
-                        <img className='w-90 h-60' src={homefoodimg2} alt="" />
+                        <img className='pizzaimg w-90 h-60' src={homefoodimg2} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Pizza</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
@@ -138,7 +138,7 @@ function Home() {
                     </div>
 
                     <div>
-                        <img className='w-90 h-60' src={homefoodimg3} alt="" />
+                        <img className='frenchimg w-90 h-60' src={homefoodimg3} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>French Fries</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
@@ -164,6 +164,8 @@ function Home() {
 
             </div>
             {/* sec-3 */}
+
+ 
 
 
 

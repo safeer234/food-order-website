@@ -1,5 +1,6 @@
 
 import App from './App.jsx'
+import './App.css';
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import store from './app/Store.jsx';

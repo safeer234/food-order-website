@@ -133,10 +133,10 @@ function HotDeals() {
         
     ]
   return (
-    <div className='grid grid-cols-4  gap-4 px-15'>
+    <div className='grid grid-cols-4   snap-x   gap-4 px-15'>
 {deals.map((deal, index) => {
 return(
-    <div className='bg-[#fef2f2] shadow-xl text-[#57534e]  h-100 shadow-stone-300 p-4 rounded-3xl'>
+    <div className=' dealscard snap-center  bg-[#fef2f2] shadow-xl text-[#57534e]  h-100 shadow-stone-300 p-4 rounded-3xl'>
         <DealsCard deal = {deal} key={index} />
         </div>
 )

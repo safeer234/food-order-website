@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import {useSelector, useDispatch } from 'react-redux';
+import { changeBg } from '../features/theme/themeSlice';
 
 function Root() {
+  const dispatch = useDispatch()
+   const toggleValue = useSelector((state) => state.toggle.value);
+   console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
-      <header className="shadow-md">
+    <div className={toggleValue ? "dark" : ""}>
+      <header className=" shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
         <nav className="flex justify-between items-center px-6 py-4">
           
           
@@ -18,18 +23,44 @@ function Root() {
           </div>
 
          
-          <ul className="hidden lg:flex gap-10 text-[#57534e]">
-            <li className="hover:text-[#ef4444]"><NavLink to='/home'>Home</NavLink></li>
-            <li className="hover:text-[#ef4444]"><NavLink to='/menu'>Menu</NavLink></li>
-            <li className="hover:text-[#ef4444]"><NavLink to='/services'>Services</NavLink></li>
-            <li className="hover:text-[#ef4444]"><NavLink to='/about'>About</NavLink></li>
-            <li className="hover:text-[#ef4444]"><NavLink to='/contact'>Contact</NavLink></li>
+          <ul className="hidden lg:flex gap-10 ">
+           <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/home'>Home</NavLink>
+</li>
+<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/menu'>Menu</NavLink>
+</li>
+<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/services'>Services</NavLink>
+</li>
+<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/about'>About</NavLink>
+</li>
+<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/contact'>Contact</NavLink>
+</li>
+
+            <div>
+               <label for="AcceptConditions" className="relative block h-8  w-12 [-webkit-tap-highlight-color:transparent]">
+  <input type="checkbox" id="AcceptConditions" className="peer sr-only" onClick={()=>dispatch(changeBg())}/>
+  <span className="absolute inset-0 m-auto h-2 rounded-full bg-gray-300"></span>
+
+  <span className="absolute inset-y-0 start-0 m-auto size-6 rounded-full bg-gray-500 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:scale-0">
+    <span className="absolute inset-0 m-auto size-4 rounded-full bg-gray-200 transition-transform">
+    </span>
+  </span>
+</label>
+
+            </div>
+           
+
+
           </ul>
 
           
           <ul className="hidden lg:flex gap-6">
-            <li className='text-[#ef4444]'><NavLink>Login</NavLink></li>
-            <li className='border-[#ef4444] text-[#ef4444] border-2 px-4 py-1 rounded-3xl'>
+            <li className=' text-[#ef4444]'>Login</li>
+            <li className='signupbtn border-[#ef4444] text-[#ef4444] border-2 px-4 p-0.5 rounded-3xl'>
               <NavLink>Sign Up</NavLink>
             </li>
           </ul>
@@ -59,10 +90,17 @@ function Root() {
             </NavLink>
           </div>
         )}
+        
       </header>
 
       {/* Render pages */}
-      <Outlet />
+      
+        <main className="">
+        <Outlet />
+      </main>
+
+      
+      
     </div>
   )
 }
