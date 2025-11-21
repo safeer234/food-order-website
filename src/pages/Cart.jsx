@@ -23,7 +23,7 @@ function Cart() {
             <h3>{item.name} (x{countItem})</h3>
             <p className='ml-240'>Price: {item.price}</p>
             <div className=' flex px-5 gap-3'>
-               <button onClick={()=> dispatch(incrementItem())} className=' w-10 h-10 rounded-[410px] text-white text-lg bg-[#ef4444] duration-200 ease-in hover:bg-[#f87171]'>+</button>
+               <button onClick={()=> dispatch(incrementItem())} className=' w-11 h-11 rounded-[410px] text-white text-lg bg-[#ef4444] duration-200 ease-in hover:bg-[#f87171]'>+</button>
              <button onClick={()=> dispatch(decrementItem())} className=' w-10 h-10 rounded-[410px] text-white text-2xl text-center bg-[#ef4444] duration-200 ease-in hover:bg-[#f87171]'>-</button>
             
 
