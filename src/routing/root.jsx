@@ -10,7 +10,7 @@ function Root() {
   const dispatch = useDispatch()
    const toggleValue = useSelector((state) => state.toggle.value);
    const loginValue =useSelector((state)=>state.login.value);
-   const hideValue = useSelector((state) => state.hide.value)
+  
    console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,7 +18,7 @@ function Root() {
      
     <div className={toggleValue ? "dark" : ""}>
      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
-      <div hidden={!hideValue} className='bg-[white]  shadow-2xl w-100 h-100 text-center '>
+      <div hidden={!loginValue} className='bg-[white]  shadow-2xl w-100 h-100 text-center '>
         <LoginForm />
 
       </div>

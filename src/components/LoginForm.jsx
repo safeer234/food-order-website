@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { hideLogin } from '../features/hide login/HideLogin'
+
+import { showLogin } from '../features/login and signup/LoginSlice'
 function LoginForm() {
     const dispatch = useDispatch()
   return (
@@ -12,7 +13,7 @@ function LoginForm() {
             </div>
              
              <div className='text-center items-center   justify-center'>
-                <i onClick={()=> dispatch(hideLogin())} class='bxr  bx-x'></i> 
+                <i onClick={()=> dispatch(showLogin())} class='bxr  bx-x'></i> 
 
              </div>
              
