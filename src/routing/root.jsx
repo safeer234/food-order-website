@@ -3,17 +3,31 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import {useSelector, useDispatch } from 'react-redux';
 import { changeBg } from '../features/toggle/ToggleSlice';
-
+import { showLogin } from '../features/login and signup/LoginSlice';
+import LoginForm from '../components/LoginForm';
 
 function Root() {
   const dispatch = useDispatch()
    const toggleValue = useSelector((state) => state.toggle.value);
+   const loginValue =useSelector((state)=>state.login.value);
+   const hideValue = useSelector((state) => state.hide.value)
    console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+     
     <div className={toggleValue ? "dark" : ""}>
-      <header className=" shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
+     <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
+      <div hidden={!hideValue} className='bg-[white]  shadow-2xl w-100 h-100 text-center '>
+        <LoginForm />
+
+      </div>
+        
+
+      </div>
+      <div className='z-0'>
+
+        <header className=" shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
         <nav className="flex justify-between items-center px-6 py-4">
           
           
@@ -60,7 +74,7 @@ function Root() {
 
           
           <ul className="hidden lg:flex gap-6">
-            <li className=' text-[#ef4444]'>Login</li>
+            <li  onClick={()=> dispatch(showLogin())} className=' text-[#ef4444]'>Login</li>
             <li className='signupbtn border-[#ef4444] text-[#ef4444] border-2 px-4 p-0.5 rounded-3xl'>
               <NavLink>Sign Up</NavLink>
             </li>
@@ -100,6 +114,10 @@ function Root() {
         <Outlet />
       </main>
 
+
+      </div>
+
+      
       
       
     </div>

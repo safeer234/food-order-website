@@ -101,11 +101,11 @@ function FoodCircle() {
 
     ]
   return (
- <div className="flex gap-6 overflow-x-auto scrollbar-hide py-10 px-13">
+ <div className="flex gap-10 overflow-x-auto scrollbar-hide py-10 px-13">
   {foodCircle.map((item, index) => (
     <div 
       key={index} 
-      className="min-w-[120px]"
+      className="min-w-[120px]  "
     >
       <FoodCircles foodCircle={item} />
     </div>
