@@ -12,6 +12,7 @@ import Menu from './pages/Menu.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import Cart from './pages/Cart.jsx';
+import Checkout from './pages/Checkout.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
        {
         path: "/cart",
         element: <Cart />
+        
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
         
       },
     ],

@@ -2,16 +2,35 @@ import React from 'react'
 import { clearCart } from '../features/cart/CartSlice';
 import { incrementItem, decrementItem } from '../features/item/ItemSlice';
 import {useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { addCheckout } from '../features/checkout/CheckoutSlice';
 function Cart() {
   const dispatch = useDispatch()
   const cartFoods = useSelector((state)=> state.cart.cartItems); 
   const countItem = useSelector((state)=> state.items.value)
   return (
     <div className='p-4'>
-      <h1 className='text-3xl font-bold mb-4'>Cart</h1>
-      {cartFoods.length === 0 ? (
+      <div className='flex items-center justify-between'>
         <div>
-           <p> cart is empty</p>
+           <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>Cart</h1>
+
+        </div>
+        
+
+        <div>
+          <i onClick={() =>dispatch(clearCart(cartFoods)) }  class='bxr text-2xl text-[#ef4444]  bx-trash hover:text-[#f87171] rounded-md'></i> 
+
+        </div>
+
+
+      </div>
+     
+      {cartFoods.length === 0 ? (
+        
+        
+        <div className='flex justify-center items-center h-screen inset-0'>
+          
+           <p className='text-6xl text-[#d6d3d1]'> cart is empty</p>
 
         </div>
        
@@ -42,12 +61,20 @@ function Cart() {
        <div className='flex gap-20 py-5'>
          <p>Total count: {cartFoods.length}</p>
          <div className='px-90'>
-          <button onClick={() =>dispatch(clearCart()) } className='bg-[#ef4444] duration-200 ease-in hover:bg-[#f87171] text-[white] p-1  text-center rounded-md w-20'>Clear All</button>
+         
           
 
          </div>
          
 
+      </div>
+
+      <div className='flex justify-end'>
+        <Link to='/checkout'>
+         <button onClick={()=> dispatch(addCheckout(cartFoods))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Proceed to Checkout</button>
+
+        </Link>
+       
       </div>
       
 
