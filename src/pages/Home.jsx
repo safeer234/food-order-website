@@ -95,7 +95,7 @@ function Home() {
             {/* sec-3 */}
             <div>
 
-                <div className='flex py-45 px-15 justify-between '>
+                <div className='block sm:block md:block lg:flex py-45 px-15 justify-between '>
                     <h2 className='text-[#57534e] text-5xl font-semibold'>Best <span className='text-[#ef4444]'>Delivered</span><br />Categories</h2>
                     <p className='text-[16px] text-[#57534e]'>Here are some of our best distributed<br />Categories.If you want you can order<br />from here.</p>
 
@@ -103,7 +103,7 @@ function Home() {
 
 
 
-                <div className='flex gap-40 px-15 text-center mb-10'>
+                <div className='block sm:block md:block lg:flex gap-40 px-15 text-center mb-10'>
                     <div>
                         <img className='burgerimg w-90 h-60' src={homefoodimg1} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Burger</h3>
