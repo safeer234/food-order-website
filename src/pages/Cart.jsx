@@ -7,7 +7,8 @@ import { addCheckout } from '../features/checkout/CheckoutSlice';
 function Cart() {
   const dispatch = useDispatch()
   const cartFoods = useSelector((state)=> state.cart.cartItems); 
-  const countItem = useSelector((state)=> state.items.value)
+  const countItem = useSelector((state)=> state.items.value);
+ 
   return (
     <div className='p-4'>
       <div className='flex items-center justify-between'>

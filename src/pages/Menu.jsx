@@ -10,7 +10,8 @@ function Menu() {
 
   const searchText = useSelector((state) => state.search.value.toLowerCase());
   const dispatch = useDispatch();
-
+ const cartItems = useSelector((state)=> state.cart.cartItems.length > 0)
+ 
   return (
     <div>
 
@@ -69,10 +70,12 @@ function Menu() {
         </div>
 
         
-        <div className="px-20">
+        <div className="px-20 flex">
           <Link to="/cart">
             <i className="bx bx-cart text-[#57534e] text-3xl"></i>
           </Link>
+          
+          <p hidden={!cartItems} className='  bg-[#ef4444] absolute z-50 ml-6 mt-1.5  flext text-center justify center rounded-2xl h-2.5 w-2.5'></p>
         </div>
       </div>
 

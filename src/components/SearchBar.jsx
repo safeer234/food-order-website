@@ -14,7 +14,9 @@ function SearchBar() {
           type="text"
           onChange={(e) => dispatch(handleSearch(e.target.value))}
         />
+        
         <i className="bx bx-search text-[#57534e] text-xl"></i>
+        
       </div>
     </div>
   )
