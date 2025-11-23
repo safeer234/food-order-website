@@ -14,6 +14,9 @@ function Menu() {
  
   return (
     <div>
+      <div hidden={!cartItems} className='flex z-1 transition-opacity duration-600 opacity-0 fixed items-center  justify-center h-screen px-320 '>
+<p className='bg-[white] border shadow-xl w-45 items-center flex justify-center gap-0.5 rounded-sm'><i className='bxr text-[green] bx-check-circle'></i> item added to the cart</p>
+      </div>
 
      
       <div className="flex py-10 justify-between">

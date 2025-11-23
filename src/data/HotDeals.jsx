@@ -23,22 +23,23 @@ function HotDeals() {
   const sortType = useSelector((state) => state.sort.type)
 
   const deals = [
-    { id: 1, image: momoscircle, name: "Momos", price: "₹110" },
-    { id: 2, image: chipscircle, name: "Fried Chips", price: "₹100" },
-    { id: 3, image: shrimpscircle, name: "Fried Shrimps", price: "₹140" },
-    { id: 4, image: shawarmacircle, name: "Shawarma", price: "₹120" },
-    { id: 5, image: loadedcircle, name: "Loaded Fries", price: "₹140" },
-    { id: 6, image: wrapcircle, name: "Chicken Wrap", price: "₹110" },
-    { id: 7, image: zingercircle, name: "Zinger Burger", price: "₹130" },
-    { id: 8, image: popscircle, name: "Chicken Pops", price: "₹120" },
-    { id: 9, image: vegcircle, name: "Veg Burger", price: "₹135" },
-    { id: 10, image: tacocircle, name: "Tacos", price: "₹124" },
-    { id: 11, image: alfahamcircle, name: "Alfaham", price: "₹120" },
-    { id: 12, image: drinkscircle, name: "Pepsi", price: "₹90" },
-    { id: 13, image: homefoodimg1, name: "Chicken Burger", price: "₹140" },
-    { id: 14, image: homefoodimg2, name: "French Fries", price: "₹70" },
-    { id: 15, image: homefoodimg3, name: "Pizza", price: "₹145" },
-    { id: 16, image: nuggetscircle, name: "Chicken Nuggets", price: "₹118" },
+   { id: 1, image: momoscircle, name: "Momos", price: 110, qty: 1 },
+{ id: 2, image: chipscircle, name: "Fried Chips", price: 100, qty: 1 },
+{ id: 3, image: shrimpscircle, name: "Fried Shrimps", price: 140, qty: 1 },
+{ id: 4, image: shawarmacircle, name: "Shawarma", price: 120, qty: 1 },
+{ id: 5, image: loadedcircle, name: "Loaded Fries", price: 140, qty: 1 },
+{ id: 6, image: wrapcircle, name: "Chicken Wrap", price: 110, qty: 1 },
+{ id: 7, image: zingercircle, name: "Zinger Burger", price: 130, qty: 1 },
+{ id: 8, image: popscircle, name: "Chicken Pops", price: 120, qty: 1 },
+{ id: 9, image: vegcircle, name: "Veg Burger", price: 135, qty: 1 },
+{ id: 10, image: tacocircle, name: "Tacos", price: 124, qty: 1 },
+{ id: 11, image: alfahamcircle, name: "Alfaham", price: 120, qty: 1 },
+{ id: 12, image: drinkscircle, name: "Pepsi", price: 90, qty: 1 },
+{ id: 13, image: homefoodimg1, name: "Chicken Burger", price: 40, qty: 1 },
+{ id: 14, image: homefoodimg2, name: "French Fries", price: 70, qty: 1 },
+{ id: 15, image: homefoodimg3, name: "Pizza", price: 145, qty: 1 },
+{ id: 16, image: nuggetscircle, name: "Chicken Nuggets", price: 118, qty: 1 },
+
   ]
 
  

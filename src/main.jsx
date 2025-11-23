@@ -13,6 +13,7 @@ import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import Cart from './pages/Cart.jsx';
 import Checkout from './pages/Checkout.jsx';
+import Order from './pages/Order.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />
+        
+      },
+      {
+        path: "/order",
+        element: <Order />
         
       },
     ],
