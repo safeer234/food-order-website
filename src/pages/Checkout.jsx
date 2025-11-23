@@ -35,6 +35,39 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
           </div>
         ))
       )}
+      <h2 className='text-2xl font-bold  py-7 text-[#57534e]'>Payment Mode:</h2>
+      {/* payment mode */}
+    <div className='py-4'>
+  <fieldset className="space-y-3">
+    <legend className="sr-only">Delivery</legend>
+
+    <div>
+      <label htmlFor="DeliveryStandard" className="flex items-center justify-between gap-4 rounded border border-gray-300 bg-white p-3 text-sm font-medium shadow-sm transition-colors hover:bg-gray-50 has-checked:border-blue-600 has-checked:ring-1 has-checked:ring-blue-600">
+        <div>
+          <p className="text-gray-700">Cash on Delivery</p>
+          <p className="text-gray-900"></p>
+        </div>
+
+        <input type="radio" name="DeliveryOption" value="DeliveryStandard" id="DeliveryStandard" className="size-5 border-gray-300" defaultChecked />
+      </label>
+    </div>
+
+    <div>
+      <label htmlFor="DeliveryPriority" className="flex items-center justify-between gap-4 rounded border border-gray-300 bg-white p-3 text-sm font-medium shadow-sm transition-colors hover:bg-gray-50 has-checked:border-blue-600 has-checked:ring-1 has-checked:ring-blue-600">
+        <div>
+          <p className="text-gray-700">Pay Online</p>
+          <p className="text-gray-900"></p>
+        </div>
+
+        <input type="radio" name="DeliveryOption" value="DeliveryPriority" id="DeliveryPriority" className="size-5 border-gray-300" />
+      </label>
+    </div>
+  </fieldset>
+
+  <span id="PING_IFRAME_FORM_DETECTION" style={{ display: "none" }}></span>
+</div>
+
+      {/* payment mode */}
       <div className='flex gap-20 py-5'>
          <p>Amount to be paid:  ₹{sum}</p>
         
