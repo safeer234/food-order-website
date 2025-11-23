@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { clearCheckout } from '../features/checkout/CheckoutSlice';
+import { addOrder } from '../features/myorder/MySlice';
 function Checkout() {
   const dispatch = useDispatch()
   const checkoutFood = useSelector((state) => state.checkout.checkoutItem);
@@ -42,7 +43,7 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
 
        <div className='flex justify-end'>
         <Link to='/order'>
-         <button  className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Place Order</button>
+         <button onClick={()=>dispatch(addOrder(checkoutFood))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Place Order</button>
 
         </Link>
        

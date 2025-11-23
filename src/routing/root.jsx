@@ -48,6 +48,10 @@ function Root() {
 </li>
 
 <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
+  <NavLink to='/myorder'>Orders</NavLink>
+</li>
+
+<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
   <NavLink to='/about'>About</NavLink>
 </li>
 <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
@@ -93,6 +97,7 @@ function Root() {
           <div className="lg:hidden bg-white shadow-lg p-5 space-y-5 text-center text-[#57534e]">
             <NavLink onClick={() => setIsOpen(false)} to="/home" className="block hover:text-[#ef4444]">Home</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/menu" className="block hover:text-[#ef4444]">Menu</NavLink>
+            <NavLink onClick={() => setIsOpen(false)} to="/menu" className="block hover:text-[#ef4444]">Orders</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/about" className="block hover:text-[#ef4444]">About</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/contact" className="block hover:text-[#ef4444]">Contact</NavLink>
 

@@ -14,6 +14,7 @@ import Contact from './pages/Contact.jsx';
 import Cart from './pages/Cart.jsx';
 import Checkout from './pages/Checkout.jsx';
 import Order from './pages/Order.jsx';
+import Myorders from './pages/Myorders.jsx'; 
 import {
   createBrowserRouter,
   RouterProvider,
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
       {
         path: "/order",
         element: <Order />
+        
+      },
+       {
+        path: "/myorder",
+        element: <Myorders />
         
       },
     ],
