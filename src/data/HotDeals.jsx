@@ -50,13 +50,13 @@ function HotDeals() {
  
   if (sortType === "lowToHigh") {
     filteredDeals = filteredDeals.sort(
-      (a, b) => parseInt(a.price.replace("₹", "")) - parseInt(b.price.replace("₹", ""))
+      (a, b) => parseInt(a.price) - parseInt(b.price)
     )
   }
 
   if (sortType === "highToLow") {
     filteredDeals = filteredDeals.sort(
-      (a, b) => parseInt(b.price.replace("₹", "")) - parseInt(a.price.replace("₹", ""))
+      (a, b) => parseInt(b.price) - parseInt(a.price)
     )
   }
 
