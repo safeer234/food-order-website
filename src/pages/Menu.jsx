@@ -14,7 +14,7 @@ function Menu() {
 const showDiv = useSelector((state)=> state.toast.value)
   return (
     <div>
-      <div hidden={!showDiv} className='flex z-1 transition-opacity opacity-8 duration-300  fixed items-center  justify-center  px-320 '>
+      <div hidden={!showDiv} className='flex z-1   fixed items-center  justify-center  px-320 '>
 <p className='bg-[white] border shadow-xl w-45 items-center flex justify-center gap-0.5 rounded-sm'><i className='bxr text-[green] bx-check-circle'></i> item added to the cart</p>
       </div>
 
