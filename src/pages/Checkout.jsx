@@ -1,13 +1,26 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-
+import { clearCheckout } from '../features/checkout/CheckoutSlice';
 function Checkout() {
+  const dispatch = useDispatch()
   const checkoutFood = useSelector((state) => state.checkout.checkoutItem);
 const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 0); 
   return (
     <div className="p-6">
-      <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>Checkout</h1>
+      <div className='flex items-center justify-between'>
+        <div>
+          <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>Checkout</h1>
+        </div>
+
+        <div>
+          <i onClick={() =>dispatch(clearCheckout(checkoutFood)) }  class='bxr text-2xl text-[#ef4444]  bx-trash hover:text-[#f87171] rounded-md'></i> 
+
+
+        </div>
+
+      </div>
+      
       {checkoutFood.length === 0 ? (
         <div className='flex justify-center items-center h-screen'>
           <p className='text-4xl text-gray-400'>No items in Checkout</p>
@@ -23,8 +36,7 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
       )}
       <div className='flex gap-20 py-5'>
          <p>Amount to be paid:  ₹{sum}</p>
-         
-         
+        
 
       </div>
 

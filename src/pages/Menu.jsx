@@ -10,11 +10,11 @@ function Menu() {
 
   const searchText = useSelector((state) => state.search.value.toLowerCase());
   const dispatch = useDispatch();
- const cartItems = useSelector((state)=> state.cart.cartItems.length > 0)
- 
+ const cartItems = useSelector((state)=> state.cart.cartItems.length > 0);
+const showDiv = useSelector((state)=> state.toast.value)
   return (
     <div>
-      <div hidden={!cartItems} className='flex z-1 transition-opacity duration-600 opacity-0 fixed items-center  justify-center h-screen px-320 '>
+      <div hidden={!showDiv} className='flex z-1 transition-opacity opacity-80 duration-300  fixed items-center  justify-center  px-320 '>
 <p className='bg-[white] border shadow-xl w-45 items-center flex justify-center gap-0.5 rounded-sm'><i className='bxr text-[green] bx-check-circle'></i> item added to the cart</p>
       </div>
 

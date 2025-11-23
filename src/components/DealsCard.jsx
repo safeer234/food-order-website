@@ -1,6 +1,7 @@
 import React from 'react'
 import {  useDispatch } from 'react-redux'
 import { addFood } from '../features/cart/CartSlice'
+import { showToast, hideToast } from '../features/toast/ToastSlice'
 function DealsCard(prop) {
   const dispatch = useDispatch()
   return (
@@ -10,7 +11,7 @@ function DealsCard(prop) {
       <h3>{prop.deal.name}</h3>
       <div className='flex gap-41 px-4 py-3'>
          <p>₹{prop.deal.price}</p>
-      <button onClick={()=> dispatch(addFood(prop.deal))} className=' cursor-pointer duration-300 ease-out hover:bg-[#f87171] text-center bg-[#ef4444] text-[white] p-1 rounded-lg w-30'>Add</button>
+      <button onClick={()=> {dispatch(addFood(prop.deal)); dispatch(showToast()); setTimeout(() => dispatch(hideToast()), 2000);}} className=' cursor-pointer duration-300 ease-out hover:bg-[#f87171] text-center bg-[#ef4444] text-[white] p-1 rounded-lg w-30'>Add</button>
       
         
       </div>
