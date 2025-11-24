@@ -76,7 +76,7 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
 
        <div className='flex justify-end'>
         <Link to='/order'>
-         <button onClick={()=>dispatch(addOrder(checkoutFood))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Place Order</button>
+         <button onClick={()=>{dispatch(addOrder(checkoutFood));dispatch(clearCheckout(checkoutFood))}} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Place Order</button>
 
         </Link>
        
