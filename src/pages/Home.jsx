@@ -103,7 +103,7 @@ function Home() {
 
 
 
-                <div className='block sm:block md:block lg:flex gap-40 px-15 text-center mb-10'>
+                <div className='block sm:block md:block lg:flex gap-40 px-15 text-center '>
                     <div>
                         <img className='burgerimg w-90 h-60' src={homefoodimg1} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Burger</h3>

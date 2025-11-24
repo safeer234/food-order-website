@@ -93,3 +93,7 @@ color:white
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.dark footer{
+   background-color: #1a1a1a !important;
+  color: #ffffff ;
+}
