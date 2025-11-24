@@ -7,6 +7,7 @@ function Checkout() {
   const dispatch = useDispatch()
   const checkoutFood = useSelector((state) => state.checkout.checkoutItem);
 const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 0); 
+const optionHid = useSelector((state)=>state.checkout.checkoutItem.length>0)
   return (
     <div className="p-6">
       <div className='flex items-center justify-between'>
@@ -35,9 +36,9 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
           </div>
         ))
       )}
-      <h2 className='text-2xl font-bold  py-7 text-[#57534e]'>Payment Mode:</h2>
+      <h2  hidden={!optionHid} className='text-2xl font-bold  py-7 text-[#57534e]'>Payment Mode:</h2>
       {/* payment mode */}
-    <div className='py-4'>
+    <div  hidden={!optionHid} className='py-4'>
   <fieldset className="space-y-3">
     <legend className="sr-only">Delivery</legend>
 
@@ -68,13 +69,13 @@ const sum = checkoutFood.reduce((total, item) => total+(item.price * item.qty), 
 </div>
 
       {/* payment mode */}
-      <div className='flex gap-20 py-5'>
+      <div hidden={!optionHid} className='flex gap-20 py-5'>
          <p>Amount to be paid:  ₹{sum}</p>
         
 
       </div>
 
-       <div className='flex justify-end'>
+       <div hidden={!optionHid} className='flex justify-end'>
         <Link to='/order'>
          <button onClick={()=>{dispatch(addOrder(checkoutFood));dispatch(clearCheckout(checkoutFood))}} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Place Order</button>
 

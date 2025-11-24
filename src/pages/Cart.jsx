@@ -8,7 +8,7 @@ function Cart() {
   const dispatch = useDispatch()
   const cartFoods = useSelector((state)=> state.cart.cartItems);
   const sum = cartFoods.reduce((total, item) => total+(item.price * item.qty), 0); 
-  
+  const proceedHid = useSelector((state)=>state.cart.cartItems.length>0)
  console.log(cartFoods);
  
   return (
@@ -61,7 +61,7 @@ function Cart() {
     
         ))
       )}
-       <div className='flex gap-20 py-5'>
+       <div hidden={!proceedHid} className='flex gap-20 py-5'>
          <p>Final Amount:  ₹{sum}</p>
          
          
@@ -70,7 +70,7 @@ function Cart() {
 
       <div className='flex justify-end'>
         <Link to='/checkout'>
-         <button onClick={()=> dispatch(addCheckout(cartFoods))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Proceed to Checkout</button>
+         <button hidden={!proceedHid} onClick={()=> dispatch(addCheckout(cartFoods))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-[white]'>Proceed to Checkout</button>
 
         </Link>
        

@@ -5,7 +5,8 @@ import { clearOrders } from '../features/myorder/MySlice';
 function Myorders() {
   const dispatch = useDispatch()
   const myFood = useSelector((state) => state.myOrder.orders);
-const sum = myFood.reduce((total, item) => total+(item.price * item.qty), 0); 
+const sum = myFood.reduce((total, item) => total+(item.price * item.qty), 0);
+const amountHid = useSelector((state) => state.myOrder.orders.length>0); 
   return (
     <div className="p-6">
       <div className='flex items-center justify-between'>
@@ -34,7 +35,7 @@ const sum = myFood.reduce((total, item) => total+(item.price * item.qty), 0);
           </div>
         ))
       )}
-      <div className='flex gap-20 py-5'>
+      <div hidden={!amountHid} className='flex gap-20 py-5'>
          <p>Amount to be paid:  ₹{sum}</p>
         
 
