@@ -30,7 +30,18 @@ const amountHid = useSelector((state) => state.myOrder.orders.length>0);
         myFood.map((item) => (
           <div key={item.id} className='flex gap-20 items-center  border-[#ef4444] border-2 p-3 rounded-lg my-2 shadow-lg'>
             <img className='w-20 h-20 rounded-lg' src={item.image} alt="" />
-            <h3 className=''>{item.name}(x{item.qty})</h3>
+             <div className='flex gap-2'>
+              
+            <div>
+              <h3>{item.name}  (x{item.qty})</h3>
+
+            </div>
+            <div>
+             <p className='text-[#f87171]'>{item.hotel}</p>
+
+            </div>
+             </div>
+
             <p className='ml-auto'>Total price: ₹{item.qty*item.price}</p>
             <div className='flex gap-1 items-center'>
               <p className='bg-[#fca5a5] w-2 h-2 rounded-2xl'></p>

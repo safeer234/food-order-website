@@ -31,7 +31,18 @@ const optionHid = useSelector((state)=>state.checkout.checkoutItem.length>0)
         checkoutFood.map((item) => (
           <div key={item.id} className='flex gap-5 items-center border-[#ef4444] border-2 p-3 rounded-lg my-2 shadow-lg'>
             <img className='w-20 h-20 rounded-lg' src={item.image} alt="" />
-            <h3 className=''>{item.name}(x{item.qty})</h3>
+             <div className='flex gap-2'>
+              
+            <div>
+              <h3>{item.name}  (x{item.qty})</h3>
+
+            </div>
+            <div>
+             <p className='text-[#f87171]'>{item.hotel}</p>
+
+            </div>
+             </div>
+
             <p className='ml-auto '>Total price: ₹{item.qty*item.price}</p>
           </div>
         ))

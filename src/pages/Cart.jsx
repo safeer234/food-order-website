@@ -40,9 +40,23 @@ function Cart() {
       ):(
         cartFoods.map((item)=>(
           <div>
-             <div key={item.id} className=' flex gap-5 items-center rounded-2xl border-3 shadow-2xl p-3 w-370 h-30 my-2 border-[#ef4444]'>
+             <div key={item.id} className=' flex  items-center rounded-2xl border-3 shadow-2xl p-3 w-370 h-30 my-2 border-[#ef4444]'>
             <img className='w-20  h-20' src={item.image} alt="" />
-            <h3>{item.name}  (x{item.qty})</h3>
+            <div className='flex gap-2'>
+              
+            <div>
+              <h3>{item.name}  (x{item.qty})</h3>
+
+            </div>
+            <div>
+             <p className='text-[#f87171]'>{item.hotel}</p>
+
+            </div>
+             </div>
+
+           
+            
+            
             <p className='ml-230'>TotalPrice: {item.qty*item.price}</p>
             <div className=' flex px-5 gap-3'>
                <button  onClick={()=> dispatch(incrementItem(item.id))} className=' w-11 h-11 rounded-[410px] text-white text-lg bg-[#ef4444] duration-200 ease-in hover:bg-[#f87171]'>+</button>
