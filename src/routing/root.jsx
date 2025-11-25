@@ -14,7 +14,11 @@ function Root() {
   
    console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
+  const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
 
+// Only modal will show
+
+if (!isAuthenticated) {
   return (
      
     <div className={toggleValue ? "dark" : ""}>
@@ -127,5 +131,7 @@ function Root() {
     </div>
   )
 }
+}
+
 
 export default Root;

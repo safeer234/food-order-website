@@ -1,18 +1,25 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-
+import { loginSuccess } from '../features/auth/AuthSlice'
 import { showLogin } from '../features/login and signup/LoginSlice'
 function LoginForm() {
-    const dispatch = useDispatch()
+    
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(loginSuccess());
+  }
   return (
     <div>
+             <form onSubmit={handleSubmit} action="">
+
         <div className='flex justify-between p-7  '>
             <div className='justify-center cursor-pointer flex'>
                 <h1 className='font-bold text-2xl text-[#ef4444]'>Login</h1>
 
             </div>
-             
-             <div className='text-center items-center   justify-center'>
+              <div className='text-center items-center   justify-center'>
                 <i onClick={()=> dispatch(showLogin())} className='bxr text-2xl text-[#57534e]  bx-x'></i> 
 
              </div>
@@ -35,7 +42,7 @@ function LoginForm() {
       
        
        <div className='flex text-center justify-center items-center'>
-        <button className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
+        <button type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
        </div>
        <div className='flex px-10 py-4 gap-2'>
         <div>
@@ -57,6 +64,9 @@ function LoginForm() {
             <button className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
 
         </div>
+
+             </form>
+             
       
 
        
