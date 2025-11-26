@@ -2,6 +2,7 @@ import React from 'react'
 import {  useDispatch } from 'react-redux'
 import { addFood } from '../features/cart/CartSlice'
 import { showToast, hideToast } from '../features/toast/ToastSlice'
+
 function DealsCard(prop) {
   const dispatch = useDispatch()
   return (

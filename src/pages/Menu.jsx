@@ -11,6 +11,7 @@ function Menu() {
   const searchText = useSelector((state) => state.search.value.toLowerCase());
   const dispatch = useDispatch();
  const cartItems = useSelector((state)=> state.cart.cartItems.length > 0);
+ const value = useSelector((state)=>state.cart.value);
 const showDiv = useSelector((state)=> state.toast.value)
   return (
     <div>
@@ -75,10 +76,10 @@ const showDiv = useSelector((state)=> state.toast.value)
         
         <div className="px-20 flex">
           <Link to="/cart">
-            <i className="bx bx-cart text-[#57534e] text-3xl"></i>
+            <i className="bx bx-cart text-[#57534e] text-4xl"></i>
           </Link>
           
-          <p hidden={!cartItems} className='  bg-[#ef4444] absolute z-50 ml-6 mt-1.5  flext text-center justify center rounded-2xl h-2.5 w-2.5'></p>
+          <p  hidden={!cartItems} className='  bg-[#ef4444] absolute z-50 ml-6 mt-1.2 text-sm flext text-center justify center rounded-2xl h-4.5 w-4.5'>{value}</p>
         </div>
       </div>
 
