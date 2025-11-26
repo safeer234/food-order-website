@@ -97,3 +97,10 @@ color:white
    background-color: #1a1a1a !important;
   color: #ffffff ;
 }
+   .lgin {
+    display: none;
+}
+
+input:invalid[focus = 'true'] ~  .lgin {
+    display: block;
+}

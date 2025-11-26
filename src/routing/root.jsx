@@ -4,13 +4,16 @@ import { Menu, X } from 'lucide-react'
 import {useSelector, useDispatch } from 'react-redux';
 import { changeBg } from '../features/toggle/ToggleSlice';
 import { showLogin } from '../features/login and signup/LoginSlice';
+import { showSign } from '../features/login and signup/SignupSlice';
 import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
 import Footer from '../components/Footer';
 
 function Root() {
   const dispatch = useDispatch()
    const toggleValue = useSelector((state) => state.toggle.value);
    const loginValue =useSelector((state)=>state.login.value);
+   const signValue =useSelector((state)=>state.sign.value);
   
    console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +26,25 @@ if (!isAuthenticated) {
      
     <div className={toggleValue ? "dark" : ""}>
      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
-      <div hidden={!loginValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-90 h-94  '>
+      <div hidden={!loginValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-110  '>
         <LoginForm />
 
       </div>
         
 
       </div>
+
+      {/* signup */}
+
+      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!signValue}>
+      <div hidden={!signValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-130  '>
+        <SignupForm />
+
+      </div>
+        
+
+      </div>
+
       <div className='z-0'>
 
         <header className=" shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
@@ -65,10 +80,10 @@ if (!isAuthenticated) {
             <div>
                <label for="AcceptConditions" className="relative block h-8  w-12 [-webkit-tap-highlight-color:transparent]">
   <input type="checkbox" id="AcceptConditions" className="peer sr-only" onClick={()=>dispatch(changeBg())}/>
-  <span className="absolute inset-0 m-auto h-2 rounded-full bg-gray-300"></span>
+  <span className="  absolute inset-0 m-auto h-2 rounded-full bg-black"></span>
 
-  <span className="absolute inset-y-0 start-0 m-auto size-6 rounded-full bg-gray-500 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:scale-0">
-    <span className="absolute inset-0 m-auto size-4 rounded-full bg-gray-200 transition-transform">
+  <span className="  absolute inset-y-0 start-0 m-auto size-6 rounded-full bg-gray-500 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:scale-0">
+    <span className="  absolute inset-0 m-auto size-4 rounded-full bg-gray-200 transition-transform">
     </span>
   </span>
 </label>
@@ -82,8 +97,8 @@ if (!isAuthenticated) {
           
           <ul className="hidden lg:flex gap-6">
             <li  onClick={()=> dispatch(showLogin())} className=' text-[#ef4444]'>Login</li>
-            <li className='signupbtn border-[#ef4444] text-[#ef4444] border-2 px-4 p-0.5 rounded-3xl'>
-              <NavLink>Sign Up</NavLink>
+            <li onClick={()=> dispatch(showSign())}  className='signupbtn border-[#ef4444] text-[#ef4444] border-2 px-4 p-0.5 rounded-3xl'>
+              Sign Up
             </li>
           </ul>
 

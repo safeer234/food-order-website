@@ -8,6 +8,7 @@ import checkoutReducer from '../features/checkout/CheckoutSlice'
 import toastReducer from '../features/toast/ToastSlice'
 import myReducer from '../features/myorder/MySlice'
 import authReducer from '../features/auth/AuthSlice'
+import signReducer from '../features/login and signup/SignupSlice'
  const store = configureStore({
   reducer: {
 cart:cartReducer,
@@ -18,7 +19,8 @@ sort:sortReducer,
 checkout: checkoutReducer,
 toast:toastReducer,
 myOrder:myReducer,
-auth:authReducer
+auth:authReducer,
+sign:signReducer,
   }
   
     

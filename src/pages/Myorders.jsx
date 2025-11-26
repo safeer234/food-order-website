@@ -28,7 +28,7 @@ const amountHid = useSelector((state) => state.myOrder.orders.length>0);
         </div>
       ) : (
         myFood.map((item) => (
-          <div key={item.id} className='flex gap-20 items-center  border-[#ef4444] border-2 p-3 rounded-lg my-2 shadow-lg'>
+          <div key={item.id} className='flex gap-20 items-center  border-[#ef4444] border-3 p-3 rounded-lg my-2 shadow-lg'>
             <img className='w-20 h-20 rounded-lg' src={item.image} alt="" />
              <div className='flex gap-2'>
               
@@ -58,6 +58,12 @@ const amountHid = useSelector((state) => state.myOrder.orders.length>0);
         
 
       </div>
+      <Link to='/home'>
+      <div className='flex justify-end' hidden={!amountHid} >
+        <button className='text-[#ef4444] border-2 border-[#ef4444] rounded-2xl duration-300 ease-in w-30 h-8 hover:bg-[#ef4444] hover:text-[white]'>return Home</button>
+
+      </div>
+      </Link>
 
       
        

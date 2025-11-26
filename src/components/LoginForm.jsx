@@ -1,15 +1,32 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { loginSuccess } from '../features/auth/AuthSlice'
+import { useState } from 'react';
 import { showLogin } from '../features/login and signup/LoginSlice'
 function LoginForm() {
     
   const dispatch = useDispatch();
+ const [focus, setFocus] = useState({
+  
+    errEmail: false,
+    errPassword: false,
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginSuccess());
-  }
+  })
+const [inputs, setInputs] = useState({
+
+  email:'',
+  password:''
+  
+
+})
+const handleSubmit = (e) => {
+e.preventDefault();
+}
+const handleChange = (e) => {
+  const name = e.target.name
+  const value = e.target.value
+  setInputs({...inputs, [name]: value})
+}
+ 
   return (
     <div>
              <form onSubmit={handleSubmit} action="">
@@ -26,14 +43,28 @@ function LoginForm() {
              
 
         </div>
-        <div className='text-center'>
+        <div className='items-center px-14'>
              <div>
-          <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="text" placeholder='Your email' />
+          <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="email" placeholder='Your email'  name = 'email'
+     value ={inputs.email}
+     onChange={handleChange}
+     pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+     onBlur={()=> setFocus({...focus, errEmail: true })} 
+     focus = {focus.errEmail.toString()} 
+     required   /><br/>
+     <span className=' lgin text-red-600 text-[12px] px-2'> Enter a valid Email id</span>
 
        </div>
 
        <div className='py-8'>
-         <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="password" placeholder='Your password' />
+         <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="password" placeholder='Your password'   name = 'password' 
+      value ={inputs.password} 
+      onChange={handleChange} 
+      pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$' 
+      onBlur={()=> setFocus({...focus, errPassword: true })} 
+      focus = {focus.errPassword.toString()} 
+      required  /><br/>
+      <span className='lgin text-red-600 text-[12px] px-'>Password must have minimum 8 characters and include atleast an uppercase, digit and special characters </span>
 
        </div>
 
@@ -44,7 +75,7 @@ function LoginForm() {
        <div className='flex text-center justify-center items-center'>
         <button type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
        </div>
-       <div className='flex px-10 py-4 gap-2'>
+       <div className='flex px-16.5 py-4 gap-2'>
         <div>
             <input type="checkbox" />
 
@@ -59,7 +90,7 @@ function LoginForm() {
         
        
        </div>
-        <div className='flex px-11'>
+        <div className='flex px-16'>
             <p className='text-[13px] text-[#57534e]'>Create a new account?</p>
             <button className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
 
