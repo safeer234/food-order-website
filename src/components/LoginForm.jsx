@@ -21,21 +21,23 @@ const [inputs, setInputs] = useState({
 
 })
 const handleSubmit = (e) => {
-e.preventDefault();
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  e.preventDefault();
+  const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (!storedUser) {
-    alert("No account found, please Sign Up!");
+  const user = storedUsers.find(u => u.email === inputs.email && u.password === inputs.password);
+
+  if (!user) {
+    alert("No account found or incorrect credentials, please Sign Up!");
+    dispatch(showSign());
     return;
   }
 
-  if (storedUser.email === inputs.email && storedUser.password === inputs.password) {
-    dispatch(loginSuccess());
-    alert("Login Successful!");
-  } else {
-    alert("Incorrect Email or Password!");
-  }
-}
+  // Save logged-in user
+  localStorage.setItem("user", JSON.stringify(user));
+  dispatch(loginSuccess());
+  alert("Login Successful!");
+};
+
 const handleChange = (e) => {
   const name = e.target.name
   const value = e.target.value
@@ -88,7 +90,7 @@ const handleChange = (e) => {
       
        
        <div className='flex text-center justify-center items-center'>
-        <button onClick={()=>dispatch(loginSuccess())} type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
+        <button  type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
        </div>
        <div className='flex px-16.5 py-4 gap-2'>
         <div>
@@ -96,7 +98,7 @@ const handleChange = (e) => {
 
         </div>
         <div>
-             <p className='text-[12px] text-[#57534e]'>By continuing, i agree to the terms of use & <br />privacy policy </p>
+             <p required className='text-[12px] text-[#57534e]'>By continuing, i agree to the terms of use & <br />privacy policy </p>
 
 
         </div>

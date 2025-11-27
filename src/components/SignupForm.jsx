@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { hideSign, signSuccess } from '../features/login and signup/SignupSlice';
+import { hideSign} from '../features/login and signup/SignupSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
 import { showLogin } from '../features/login and signup/LoginSlice';
 function SignupForm() {
@@ -19,17 +19,40 @@ username: '',
   
 
 })
-const handleSubmit = (e) => {
-e.preventDefault();
-localStorage.setItem("user", JSON.stringify(inputs));
-alert("Account Created Successfully")
-dispatch(signSuccess());
-}
+
 const handleChange = (e) => {
   const name = e.target.name
   const value = e.target.value
   setInputs({...inputs, [name]: value})
 }
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Check if user already exists
+  const userExists = storedUsers.some(u => u.email === inputs.email);
+  if (userExists) {
+    alert("User already exists! Please Login.");
+    dispatch(showLogin());
+    return;
+  }
+
+  const newUser = {
+    username: inputs.username,
+    email: inputs.email,
+    password: inputs.password
+  };
+
+  // Add new user to storage
+  storedUsers.push(newUser);
+  localStorage.setItem("users", JSON.stringify(storedUsers));
+
+  alert("Account created successfully! Please Login.");
+  dispatch(showSign()); // close signup
+  dispatch(showLogin()); // open login
+};
+
  
   return (
       <div>
@@ -95,7 +118,7 @@ const handleChange = (e) => {
           
            
            <div className='flex text-center justify-center items-center'>
-            <button type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
+            <button type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Sign Up</button>
            </div>
            <div className='flex px-16.5 py-4 gap-2'>
             <div>

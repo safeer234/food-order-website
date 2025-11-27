@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
-import {useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { useSelector, useDispatch } from 'react-redux';
 import { changeBg } from '../features/toggle/ToggleSlice';
 import { showLogin } from '../features/login and signup/LoginSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
@@ -9,157 +9,108 @@ import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import Footer from '../components/Footer';
 import { loginSuccess } from '../features/login and signup/LoginSlice';
+import { logOut } from '../features/login and signup/LoginSlice';
 
 function Root() {
-  const dispatch = useDispatch()
-   const toggleValue = useSelector((state) => state.toggle.value);
-   const loginValue =useSelector((state)=>state.login.value);
-   const signValue =useSelector((state)=>state.sign.value);
-  
-   console.log("Redux Theme State => ", toggleValue);
+  const dispatch = useDispatch();
+
+  const toggleValue = useSelector((state) => state.toggle.value);
+  const loginValue = useSelector((state) => state.login.value);
+  const signValue = useSelector((state) => state.sign.value);
+  const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
+
   const [isOpen, setIsOpen] = useState(false);
-  // const isAuthenticated = useSelector((state) => state.sign.isAuthenticated);
 
+  // Auto login if stored in localStorage
   useEffect(() => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  if (storedUser) {
-    dispatch(loginSuccess());
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      dispatch(loginSuccess());
+    }
+  }, [dispatch]);
+  useEffect(() => {
+  if (!isAuthenticated) {
+    dispatch(showLogin());
   }
-}, [dispatch]);
-
-// Only modal will show
-
-
+}, [isAuthenticated, dispatch]);
 
   return (
-     
     <div className={toggleValue ? "dark" : ""}>
-        {loginValue && (
-     <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
-      <div hidden={!loginValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-110  '>
-        <LoginForm />
-
-      </div>
+      
+      {/* ---------------------- UI Blur Overlay Before Login ---------------------- */}
+      <div className={`transition-all ${!isAuthenticated ? "blur-xl  opacity-40" : ""}`}>
         
-
-      </div>
-        )}
-
-      {/* signup */}
-        {signValue && (
-
-      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!signValue}>
-      <div hidden={!signValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-130  '>
-        <SignupForm />
-
-      </div>
-        
-
-      </div>
-        )}
-
-      <div className='z-0'>
-
-        <header className=" shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
-        <nav className="flex justify-between items-center px-6 py-4">
-          
-          
-          <div>
+        {/* HEADER */}
+        <header className="shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">
+          <nav className="flex justify-between items-center px-6 py-4">
+            
             <NavLink to='/home' className="font-bold text-[#57534e] text-2xl">
               Serve<span className='text-[#ef4444]'>It</span>
             </NavLink>
-          </div>
 
-         
-          <ul className="hidden lg:flex gap-10 ">
-           <li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/home'>Home</NavLink>
-</li>
-<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/menu'>Menu</NavLink>
-</li>
+            <ul className="hidden lg:flex gap-8">
+              <li className=' text-[#57534e] hover:text-[#ef4444]'><NavLink to='/home'>Home</NavLink></li>
+              <li className=' text-[#57534e] hover:text-[#ef4444]' ><NavLink to='/menu'>Menu</NavLink></li>
+              <li className=' text-[#57534e] hover:text-[#ef4444]'><NavLink to='/myorder'>Orders</NavLink></li>
+              <li className='text-[#57534e] hover:text-[#ef4444]'><NavLink to='/about'>About</NavLink></li>
+              <li className=' text-[#57534e] hover:text-[#ef4444]'><NavLink to='/contact'>Contact</NavLink></li>
+              <div>
+                <label className="relative block h-8 w-12">
+                  <input type="checkbox" className="peer sr-only" onClick={() => dispatch(changeBg())} />
+                  <span className="absolute inset-0 m-auto h-2 rounded-full bg-gray-300"></span>
+                  <span className="absolute inset-y-0 start-0 m-auto size-6 rounded-full bg-gray-500 transition peer-checked:start-6"></span>
+                </label>
+              </div>
+            </ul>
+<ul className="hidden lg:flex gap-5">
+  {!isAuthenticated ? (
+    <>
+      <li onClick={() => dispatch(showLogin())} className='text-[#ef4444] cursor-pointer'>Login</li>
+      <li onClick={() => dispatch(showSign())} className='border-2 px-4 py-1 rounded-3xl text-[#ef4444] border-[#ef4444] cursor-pointer'>Sign Up</li>
+    </>
+  ) : (
+    <li
+       onClick={() => {
+    localStorage.removeItem("user"); // Only remove logged-in session, not all users
+    dispatch(logOut());
+      }}
+      className='text-white bg-red-500 px-4 py-1 rounded-3xl duration-300 ease-in hover:border-2 hover:bg-white hover:border-[#ef4444] hover:text-[#ef4444] cursor-pointer'
+    >
+      Logout
+    </li>
+  )}
+</ul>
 
-<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/myorder'>Orders</NavLink>
-</li>
+            <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </nav>
+        </header>
 
-<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/about'>About</NavLink>
-</li>
-<li className="text-[#57534e] dark:text-gray-200 hover:text-[#ef4444] dark:hover:text-[#ef4444]">
-  <NavLink to='/contact'>Contact</NavLink>
-</li>
+        {/* MAIN CONTENT */}
+        <main>
+          <Outlet />
+        </main>
 
-            <div>
-               <label for="AcceptConditions" className="relative block h-8  w-12 [-webkit-tap-highlight-color:transparent]">
-  <input type="checkbox" id="AcceptConditions" className="peer sr-only" onClick={()=>dispatch(changeBg())}/>
-  <span className="  absolute inset-0 m-auto h-2 rounded-full bg-black"></span>
-
-  <span className="  absolute inset-y-0 start-0 m-auto size-6 rounded-full bg-gray-500 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:scale-0">
-    <span className="  absolute inset-0 m-auto size-4 rounded-full bg-gray-200 transition-transform">
-    </span>
-  </span>
-</label>
-
-            </div>
-           
-
-
-          </ul>
-
-          
-          <ul className="hidden lg:flex gap-6">
-            <li  onClick={()=> dispatch(showLogin())} className=' text-[#ef4444]'>Login</li>
-            <li onClick={()=> dispatch(showSign())}  className='signupbtn border-[#ef4444] text-[#ef4444] border-2 px-4 p-0.5 rounded-3xl'>
-              Sign Up
-            </li>
-          </ul>
-
-          {/* Hamburger Button */}
-          <button
-            className="lg:hidden text-[#57534e]"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </nav>
-
-        {/* Mobile Dropdown Menu */}
-        {isOpen && (
-          <div className="lg:hidden bg-white shadow-lg p-5 space-y-5 text-center text-[#57534e]">
-            <NavLink onClick={() => setIsOpen(false)} to="/home" className="block hover:text-[#ef4444]">Home</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/menu" className="block hover:text-[#ef4444]">Menu</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/menu" className="block hover:text-[#ef4444]">Orders</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/about" className="block hover:text-[#ef4444]">About</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/contact" className="block hover:text-[#ef4444]">Contact</NavLink>
-
-            <hr />
-            <NavLink className="text-[#ef4444] block">Login</NavLink>
-            <NavLink className="border-[#ef4444] text-[#ef4444] border-2 px-4 py-1 rounded-3xl block">
-              Sign Up
-            </NavLink>
-          </div>
-        )}
-        
-      </header>
-
-      {/* Render pages */}
-      
-        <main className="">
-        <Outlet />
-      </main>
-
-
+        <Footer />
       </div>
-      <Footer />
 
-      
-      
-      
+      {/* ---------------------- LOGIN MODAL ---------------------- */}
+      {loginValue && (
+        <div login={loginValue} className='fixed inset-0 flex items-center justify-center bg-black/60 z-999'>
+          <LoginForm />
+        </div>
+      )}
+
+      {/* ---------------------- SIGNUP MODAL ---------------------- */}
+      {signValue && (
+        <div className='fixed inset-0 flex items-center justify-center bg-black/60 z-999'>
+          <SignupForm />
+        </div>
+      )}
+
     </div>
-  )
-
+  );
 }
-
 
 export default Root;
