@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react';
 import { showLogin } from '../features/login and signup/LoginSlice'
+import { loginSuccess } from '../features/login and signup/LoginSlice';
 function LoginForm() {
     
   const dispatch = useDispatch();
@@ -20,6 +21,19 @@ const [inputs, setInputs] = useState({
 })
 const handleSubmit = (e) => {
 e.preventDefault();
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+
+  if (!storedUser) {
+    alert("No account found, please Sign Up!");
+    return;
+  }
+
+  if (storedUser.email === inputs.email && storedUser.password === inputs.password) {
+    dispatch(loginSuccess());
+    alert("Login Successful!");
+  } else {
+    alert("Incorrect Email or Password!");
+  }
 }
 const handleChange = (e) => {
   const name = e.target.name
@@ -73,7 +87,7 @@ const handleChange = (e) => {
       
        
        <div className='flex text-center justify-center items-center'>
-        <button type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
+        <button onClick={()=>dispatch(loginSuccess())} type='submit' className='bg-[#ef4444] w-69 h-10 rounded-md text-[white]'>Login</button>
        </div>
        <div className='flex px-16.5 py-4 gap-2'>
         <div>

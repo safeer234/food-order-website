@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import {useSelector, useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import { showSign } from '../features/login and signup/SignupSlice';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import Footer from '../components/Footer';
+import { loginSuccess } from '../features/login and signup/LoginSlice';
 
 function Root() {
   const dispatch = useDispatch()
@@ -17,14 +18,23 @@ function Root() {
   
    console.log("Redux Theme State => ", toggleValue);
   const [isOpen, setIsOpen] = useState(false);
-  const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
+  // const isAuthenticated = useSelector((state) => state.sign.isAuthenticated);
+
+  useEffect(() => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  if (storedUser) {
+    dispatch(loginSuccess());
+  }
+}, [dispatch]);
 
 // Only modal will show
 
-if (!isAuthenticated) {
+
+
   return (
      
     <div className={toggleValue ? "dark" : ""}>
+        {loginValue && (
      <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!loginValue}>
       <div hidden={!loginValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-110  '>
         <LoginForm />
@@ -33,8 +43,10 @@ if (!isAuthenticated) {
         
 
       </div>
+        )}
 
       {/* signup */}
+        {signValue && (
 
       <div className='fixed inset-0 flex items-center  justify-center  h-screen  z-50  ' hidden={!signValue}>
       <div hidden={!signValue} className=' loginform bg-[white]  shadow-2xl  rounded-md w-100 h-130  '>
@@ -44,6 +56,7 @@ if (!isAuthenticated) {
         
 
       </div>
+        )}
 
       <div className='z-0'>
 
@@ -145,7 +158,7 @@ if (!isAuthenticated) {
       
     </div>
   )
-}
+
 }
 
 

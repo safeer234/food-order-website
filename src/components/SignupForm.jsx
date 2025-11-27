@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { signSuccess } from '../features/login and signup/SignupSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
 function SignupForm() {
      const dispatch = useDispatch();
@@ -19,6 +20,9 @@ username: '',
 })
 const handleSubmit = (e) => {
 e.preventDefault();
+localStorage.setItem("user", JSON.stringify(inputs));
+alert("Account Created Successfully")
+dispatch(signSuccess());
 }
 const handleChange = (e) => {
   const name = e.target.name

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const signSlice = createSlice ({
-    name:'Sign',
+    name:'sign',
     initialState:{
 value:false,
 isAuthenticated:false
@@ -13,7 +13,7 @@ isAuthenticated:false
            hideSign: (state) => {
       state.value = false;
     },
-    loginSuccess:(state) =>{
+    signSuccess:(state) =>{
         state.value = false
         state.isAuthenticated=true
     },
@@ -23,5 +23,5 @@ isAuthenticated:false
        
     }
 })
-export const {showSign, hideSign, loginSuccess, logOut} = signSlice.actions
+export const {showSign, hideSign, signSuccess, logOut} = signSlice.actions
 export default signSlice.reducer
