@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signSuccess } from '../features/login and signup/SignupSlice';
+import { hideSign, signSuccess } from '../features/login and signup/SignupSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
+import { showLogin } from '../features/login and signup/LoginSlice';
 function SignupForm() {
      const dispatch = useDispatch();
  const [focus, setFocus] = useState({
@@ -113,7 +114,7 @@ const handleChange = (e) => {
            </div>
             <div className='flex px-16'>
                 <p className='text-[13px] text-[#57534e]'>Already have an account?</p>
-                <button className='text-[13px] px-1 text-[#ef4444]'>Login Here</button>
+                <button onClick={()=> {dispatch(showLogin()); setTimeout(()=> dispatch(hideSign()), 100)}} className='text-[13px] px-1 text-[#ef4444]'>Login Here</button>
     
             </div>
     

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react';
-import { showLogin } from '../features/login and signup/LoginSlice'
+import { hideLogin, showLogin } from '../features/login and signup/LoginSlice'
 import { loginSuccess } from '../features/login and signup/LoginSlice';
+import { showSign } from '../features/login and signup/SignupSlice';
 function LoginForm() {
     
   const dispatch = useDispatch();
@@ -106,7 +107,7 @@ const handleChange = (e) => {
        </div>
         <div className='flex px-16'>
             <p className='text-[13px] text-[#57534e]'>Create a new account?</p>
-            <button className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
+            <button onClick={()=>{dispatch(showSign()); setTimeout(()=>dispatch(hideLogin()),100)}} className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
 
         </div>
 
