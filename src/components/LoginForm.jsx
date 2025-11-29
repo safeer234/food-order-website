@@ -36,7 +36,11 @@ const handleSubmit = (e) => {
   localStorage.setItem("user", JSON.stringify(user));
   dispatch(loginSuccess());
   alert("Login Successful!");
+
+ 
+
 };
+
 
 const handleChange = (e) => {
   const name = e.target.name

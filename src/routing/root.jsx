@@ -35,11 +35,12 @@ useEffect(() => {
   }
 }, [isAuthenticated, dispatch]);
 
+
   return (
     <div className={toggleValue ? "dark" : ""}>
       
       {/* ---------------------- UI Blur Overlay Before Login ---------------------- */}
-      <div className={`transition-all ${!isAuthenticated ? "blur-xl  opacity-40" : ""}`}>
+      <div className={`transition-all ${!isAuthenticated ? "blur-3xl  opacity-40" : ""}`}>
         
         {/* HEADER */}
         <header className="shadow-md bg-white dark:bg-gray-900 dark:text-gray-100">

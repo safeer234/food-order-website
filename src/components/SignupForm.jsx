@@ -41,8 +41,12 @@ const handleSubmit = (e) => {
   const newUser = {
     username: inputs.username,
     email: inputs.email,
-    password: inputs.password
+    password: inputs.password,
+   
+
   };
+
+ 
 
   // Add new user to storage
   storedUsers.push(newUser);

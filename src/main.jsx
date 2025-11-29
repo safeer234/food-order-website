@@ -15,6 +15,7 @@ import Cart from './pages/Cart.jsx';
 import Checkout from './pages/Checkout.jsx';
 import Order from './pages/Order.jsx';
 import Myorders from './pages/Myorders.jsx'; 
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -25,48 +26,16 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {index:true, element:<App/>},
-      {
-        path: "/home",
-        element: <Home />
-        
-      },
-      {
-        path: "/menu",
-        element: <Menu />
-        
-      },
-       
-      {
-        path: "/about",
-        element: <About />
-        
-      },
-       {
-        path: "/contact",
-        element: <Contact />
-        
-      },
-       {
-        path: "/cart",
-        element: <Cart />
-        
-      },
-      {
-        path: "/checkout",
-        element: <Checkout />
-        
-      },
-      {
-        path: "/order",
-        element: <Order />
-        
-      },
-       {
-        path: "/myorder",
-        element: <Myorders />
-        
-      },
+      { index: true, element: <App /> },
+
+      { path: "/home", element: <Home /> },
+      { path: "/menu", element: <Menu /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/cart", element: <Cart /> },
+      { path: "/checkout", element: <Checkout /> },
+      { path: "/order", element: <Order /> },
+      { path: "/myorder", element: <Myorders /> },
     ],
   },
 ]);
