@@ -113,7 +113,7 @@ const handleSubmit = (e) => {
           onBlur={()=> setFocus({...focus, errPassword: true })} 
           focus = {focus.errPassword.toString()} 
           required  /><br/>
-          <span className='lgin text-red-600 text-[12px] px-'>Password must have minimum 8 characters and include atleast an uppercase, digit and special characters </span>
+          <span className='lgin text-red-600 text-[12px] px-'>Password must have minimum 8 characters and <br /> include atleast an uppercase, digit and special <br /> characters </span>
     
            </div>
     
