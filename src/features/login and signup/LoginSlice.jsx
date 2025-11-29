@@ -7,7 +7,7 @@ isAuthenticated:false
     },
     reducers:{
         showLogin: (state)=> {
-            state.value = !state.value
+            state.value = true
 
         },
            hideLogin: (state) => {
@@ -16,6 +16,7 @@ isAuthenticated:false
     loginSuccess:(state) =>{
         state.value = false
         state.isAuthenticated=true
+          localStorage.setItem("isLoggedIn", "true");
     },
     logOut:(state) =>{
         state.isAuthenticated=false

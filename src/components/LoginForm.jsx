@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react';
-import { hideLogin, showLogin } from '../features/login and signup/LoginSlice'
+import { hideLogin} from '../features/login and signup/LoginSlice'
 import { loginSuccess } from '../features/login and signup/LoginSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
 function LoginForm() {
@@ -54,7 +54,7 @@ const handleChange = (e) => {
 
             </div>
               <div className='text-center items-center   justify-center'>
-                <i onClick={()=> dispatch(showLogin())} className='bxr text-2xl text-[#57534e]  bx-x'></i> 
+                <i className='bxr text-2xl text-[#57534e]  bx-x'></i> 
 
              </div>
              

@@ -64,7 +64,7 @@ const handleSubmit = (e) => {
     
                 </div>
                   <div className='text-center items-center   justify-center'>
-                    <i onClick={()=> dispatch(showSign())} className='bxr text-2xl text-[#57534e]  bx-x'></i> 
+                    <i  className='bxr text-2xl text-[#57534e]  bx-x'></i> 
     
                  </div>
                  

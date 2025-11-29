@@ -22,12 +22,13 @@ function Root() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Auto login if stored in localStorage
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser) {
-      dispatch(loginSuccess());
-    }
-  }, [dispatch]);
+useEffect(() => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (isLoggedIn) {
+    dispatch(loginSuccess());
+  }
+}, [dispatch]);
+
   useEffect(() => {
   if (!isAuthenticated) {
     dispatch(showLogin());
@@ -71,7 +72,8 @@ function Root() {
   ) : (
     <li
        onClick={() => {
-    localStorage.removeItem("user"); // Only remove logged-in session, not all users
+    localStorage.removeItem("user");
+     localStorage.removeItem("isLoggedIn"); // Only remove logged-in session, not all users
     dispatch(logOut());
       }}
       className='text-white bg-red-500 px-4 py-1 rounded-3xl duration-300 ease-in hover:border-2 hover:bg-white hover:border-[#ef4444] hover:text-[#ef4444] cursor-pointer'
@@ -97,7 +99,7 @@ function Root() {
 
       {/* ---------------------- LOGIN MODAL ---------------------- */}
       {loginValue && (
-        <div login={loginValue} className='fixed inset-0 flex items-center justify-center bg-black/60 z-999'>
+        <div  className='fixed inset-0 flex items-center justify-center bg-black/60 z-999'>
           <LoginForm />
         </div>
       )}
