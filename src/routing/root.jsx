@@ -56,7 +56,7 @@ useEffect(() => {
       <div className={`transition-all ${!isAuthenticated  ? "blur-3xl opacity-20" : ""}`}>
 
         {/* HEADER */}
-        <header className="shadow-md bg-white dark:bg-gray-900 dark:text-gray-100 relative">
+        <header className="shadow-md bg-white dark:text-gray-100 relative">
           <nav className="flex justify-between items-center px-6 py-4">
 
             {/* Logo */}
@@ -132,7 +132,7 @@ useEffect(() => {
 
           {/* ---------------------- MOBILE MENU ---------------------- */}
           {isOpen && (
-            <ul className="lg:hidden mbile flex flex-col gap-4 mt-4 bg-white dark:bg-black p-4 rounded shadow-md absolute w-full z-50">
+            <ul className="lg:hidden mbile flex flex-col gap-4 mt-4 bg-white p-4 rounded shadow-md absolute w-full z-50">
 
               <li><NavLink to="/home" onClick={() => setIsOpen(false)} className="text-[#57534e] hover:text-[#ef4444]">Home</NavLink></li>
               <li><NavLink to="/menu" onClick={() => setIsOpen(false)} className="text-[#57534e] hover:text-[#ef4444]">Menu</NavLink></li>
@@ -150,7 +150,7 @@ useEffect(() => {
               {/* Login/Logout Section */}
             {/* Mobile User Section */}
 {isAuthenticated ? (
-  <div className="flex flex-col gap-2 p-3  bg-gray-100 dark:bg-gray-800 rounded-md">
+  <div className="flex flex-col gap-2 p-3  bg-gray-100 rounded-md">
 
     {/* User info row */}
     <div className="flex items-center gap-3">
