@@ -141,7 +141,7 @@ const handleSubmit = (e) => {
            </div>
             <div className='flex px-16'>
                 <p className='text-[13px] text-[#57534e]'>Already have an account?</p>
-                <button onClick={()=> {dispatch(showLogin()); setTimeout(()=> dispatch(hideSign()), 100)}} className='text-[13px] px-1 text-[#ef4444]'>Login Here</button>
+                <button onClick={()=> {dispatch(hideSign());dispatch(showLogin());}} className='text-[13px] px-1 text-[#ef4444]'>Login Here</button>
     
             </div>
     

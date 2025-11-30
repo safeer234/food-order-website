@@ -113,7 +113,7 @@ const handleChange = (e) => {
        </div>
         <div className='flex px-16'>
             <p className='text-[13px] text-[#57534e]'>Create a new account?</p>
-            <button onClick={()=>{dispatch(showSign()); setTimeout(()=>dispatch(hideLogin()),100)}} className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
+            <button onClick={()=>{ dispatch(hideLogin()); dispatch(showSign());}} className='text-[13px] px-1 text-[#ef4444]'>Click Here</button>
 
         </div>
 

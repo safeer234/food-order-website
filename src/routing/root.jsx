@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeBg } from '../features/toggle/ToggleSlice';
-import { showLogin } from '../features/login and signup/LoginSlice';
+import {  showLogin } from '../features/login and signup/LoginSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
@@ -20,28 +20,39 @@ function Root() {
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
 
   const [isOpen, setIsOpen] = useState(false);
+  
+
 
   // Auto login if stored in localStorage
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    if (isLoggedIn) {
-      dispatch(loginSuccess());
-    }
-  }, [dispatch]);
+ // AUTO LOGIN CHECK ON PAGE LOAD
+const [loggedUser, setLoggedUser] = useState(null);
+
+useEffect(() => {
+  const savedUser = JSON.parse(localStorage.getItem("user"));
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (savedUser && isLoggedIn) {
+    dispatch(loginSuccess());
+    setLoggedUser(savedUser); // 👈 store user info
+  } else {
+    dispatch(logOut());
+    setLoggedUser(null);
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+
+
 
   // blur background if not authenticated
-  useEffect(() => {
-    if (!isAuthenticated) {
-      dispatch(showLogin());
-    }
-  }, [isAuthenticated, dispatch]);
-
+ 
 
   return (
     <div className={toggleValue ? "dark" : ""}>
 
       {/* ---------------------- UI Blur Before Login ---------------------- */}
-      <div className={`transition-all ${!isAuthenticated ? "blur-3xl opacity-40" : ""}`}>
+      <div className={`transition-all ${!isAuthenticated  ? "blur-3xl opacity-20" : ""}`}>
 
         {/* HEADER */}
         <header className="shadow-md bg-white dark:bg-gray-900 dark:text-gray-100 relative">
@@ -68,27 +79,49 @@ function Root() {
             </ul>
 
             {/* Desktop Login / Signup */}
-            <ul className="hidden lg:flex gap-5">
-              {!isAuthenticated ? (
-                <>
-                  <li onClick={() => dispatch(showLogin())} className="text-[#ef4444] cursor-pointer">Login</li>
-                  <li onClick={() => dispatch(showSign())} className="border-2 px-4 py-1 rounded-3xl text-[#ef4444] border-[#ef4444] cursor-pointer">
-                    Sign Up
-                  </li>
-                </>
-              ) : (
-                <li
-                  onClick={() => {
-                    localStorage.removeItem("user");
-                    localStorage.removeItem("isLoggedIn");
-                    dispatch(logOut());
-                  }}
-                  className="text-white bg-red-500 px-4 py-1 rounded-3xl duration-300 hover:bg-white hover:text-[#ef4444] hover:border-2 hover:border-[#ef4444] cursor-pointer"
-                >
-                  Logout
-                </li>
-              )}
-            </ul>
+           <ul className="hidden lg:flex gap-5">
+
+  {!isAuthenticated ? (
+    <>
+      <li onClick={() => dispatch(showLogin())} className="text-[#ef4444] cursor-pointer">Login</li>
+      <li onClick={() => dispatch(showSign())} className="border-2 px-4 py-1 rounded-3xl text-[#ef4444] border-[#ef4444] cursor-pointer">
+        Sign Up
+      </li>
+    </>
+  ) : (
+    <div className="relative group">
+      {/* User Icon */}
+      <div className="flex items-center gap-2 cursor-pointer">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          className="w-8 h-8 rounded-full"
+          alt="user"
+        />
+        <span className="text-[#57534e] font-medium">{loggedUser?.username}</span>
+      </div>
+
+      {/* Dropdown Menu */}
+      <div className="absolute right-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md p-3 w-50">
+        <p className="text-sm text-gray-700 mb-2">Logged in as</p>
+        <p className="font-semibold text-gray-800">{loggedUser?.email}</p>
+
+        <button
+          onClick={() => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("isLoggedIn");
+            dispatch(logOut());
+            dispatch(showLogin());
+          }}
+          className="w-full mt-3 bg-red-500 text-white py-1 rounded-md hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  )}
+
+</ul>
+
 
             {/* Mobile Hamburger Button */}
             <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -114,24 +147,69 @@ function Root() {
               </label>
 
               {/* Login/Logout Section */}
-              {!isAuthenticated ? (
-                <>
-                  <li onClick={() => { dispatch(showLogin()); setIsOpen(false); }} className="text-[#ef4444] cursor-pointer">Login</li>
-                  <li onClick={() => { dispatch(showSign()); setIsOpen(false); }} className="text-[#ef4444] border-2 px-4 py-1 rounded-3xl cursor-pointer">Sign Up</li>
-                </>
-              ) : (
-                <li
-                  onClick={() => {
-                    localStorage.removeItem("user");
-                    localStorage.removeItem("isLoggedIn");
-                    dispatch(logOut());
-                    setIsOpen(false);
-                  }}
-                  className="text-white bg-red-500 px-4 py-1 rounded-3xl"
-                >
-                  Logout
-                </li>
-              )}
+            {/* Mobile User Section */}
+{isAuthenticated ? (
+  <div className="flex flex-col gap-2 p-3  bg-gray-100 dark:bg-gray-800 rounded-md">
+
+    {/* User info row */}
+    <div className="flex items-center gap-3">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        className="w-10 h-10 rounded-full"
+        alt="user"
+      />
+      <div>
+        <p className="font-semibold text-gray-800 dark:text-gray-100">
+          {loggedUser?.username}
+        </p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {loggedUser?.email}
+        </p>
+      </div>
+    </div>
+
+    {/* My Orders Button */}
+    <NavLink
+      to="/myorder"
+      onClick={() => setIsOpen(false)}
+      className="text-[#ef4444] font-medium"
+    >
+      My Orders
+    </NavLink>
+
+    {/* Logout Button */}
+    <button
+      onClick={() => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("isLoggedIn");
+        dispatch(logOut());
+        dispatch(showLogin());
+        setIsOpen(false);
+      }}
+      className="bg-red-500 text-white py-1 rounded-md hover:bg-red-600"
+    >
+      Logout
+    </button>
+
+  </div>
+) : (
+  <>
+    <li 
+      onClick={() => { dispatch(showLogin()); setIsOpen(false); }}
+      className="text-[#ef4444] cursor-pointer"
+    >
+      Login
+    </li>
+
+    <li
+      onClick={() => { dispatch(showSign()); setIsOpen(false); }}
+      className="text-[#ef4444] border-2 px-4 py-1 rounded-3xl cursor-pointer"
+    >
+      Sign Up
+    </li>
+  </>
+)}
+
             </ul>
           )}
         </header>
