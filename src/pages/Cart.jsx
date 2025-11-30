@@ -13,12 +13,12 @@ function Cart() {
   console.log(cartFoods);
 
   return (
-    <div className='p-4'>
+    <div className='p-0 sm:p-0 md:p-4 lg:p-4 py-9 sm:py-9 md:py-0 lg-py-0 '>
 
       {/* CART HEADER */}
-       <div className='flex items-center justify-between'>
+       <div className='flex items-center justify-between md:justify-between lg:justify-between'>
         <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>Cart</h1>
-        <i onClick={() => dispatch(clearCart(cartFoods))} class='bxr text-2xl text-[#ef4444] bx-trash hover:text-[#f87171] rounded-md'></i>
+        <i onClick={() => dispatch(clearCart(cartFoods))} class='bxr text-2xl text-[#ef4444] mr-5 sm:mr-5 md:mr-0 lg:md-0 bx-trash hover:text-[#f87171] rounded-md'></i>
       </div> 
 
       {/* EMPTY CART MESSAGE */}
@@ -31,19 +31,19 @@ function Cart() {
       /* CART ITEM LIST */
          cartFoods.map((item) => (
           <div key={item.id}>
-            <div className='flex items-center rounded-2xl border-3 shadow-2xl p-3 w-370 h-30 my-2 border-[#ef4444]'>
+            <div className='block sm:block md:flex lg:flex items-center rounded-2xl border-3 shadow-2xl p-3 w-90 sm:w-90 md:w-184 lg:w-370 h-50 sm:h-50 md:h-30 lg:h-30 my-2 border-[#ef4444]'>
               <img className='w-20 h-20' src={item.image} alt="" />
               
-              <div className='flex gap-2'>
+              <div className='flex gap-20 sm:gap- md:gap-20 lg:gap-20'>
                 <div>
-                  <h3>{item.name} (x{item.qty})</h3>
+                  <h3>{item.name} <span className='border p-0.5 text-center'>x{item.qty}</span></h3>
                 </div>
                 <div>
                   <p className='text-[#f87171]'>{item.hotel}</p>
                 </div>
               </div>
 
-              <p className='ml-230'>TotalPrice: {item.qty * item.price}</p>
+              <p className='ml-0 sm:ml-0 md:ml-40 lg:ml-230'>TotalPrice: ₹{item.qty * item.price}</p>
 
               <div className='flex px-5 gap-3'>
                 <button onClick={() => dispatch(incrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-lg bg-[#ef4444] hover:bg-[#f87171]'>+</button>

@@ -7,7 +7,7 @@ function SearchBar() {
 
   return (
     <div>
-      <div className="border-2 rounded-2xl flex items-center gap-2 px-3 h-9 border-[#57534e] w-full max-w-sm">
+      <div className="border-2 rounded-2xl flex items-center gap-0 sm:gap-0 lg:gap-2 px-3 h-9 border-[#57534e] w-full max-w-sm">
         <input
           className="flex-1 outline-none"
           placeholder="Search Hot Deals..."

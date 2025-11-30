@@ -20,8 +20,8 @@ const showDiv = useSelector((state)=> state.toast.value)
       </div>
 
      
-      <div className="flex py-10 justify-between">
-        <div className="flex items-center px-15 gap-6">
+      <div className="flex py-10 justify-around sm:justify-around md:justify-between lg:justify-between">
+        <div className="flex items-center px-4 sm:px-4 lg:px-15 gap-0 sm:gap-0 lg:gap-6">
           <SearchBar />
 
           
@@ -30,7 +30,7 @@ const showDiv = useSelector((state)=> state.toast.value)
            
             <details className="group relative">
               <summary className="flex items-center gap-2 border-b border-gray-300 pb-1 text-gray-700 cursor-pointer">
-                <span className="text-sm font-medium"> Price </span>
+                <span className="text-sm font-medium">  </span>
                 <span className="transition-transform group-open:-rotate-180">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -41,7 +41,7 @@ const showDiv = useSelector((state)=> state.toast.value)
                 </span>
               </summary>
 
-              <div className="absolute top-8 w-56 bg-white border shadow-sm rounded divide-y divide-gray-300 z-10">
+              <div className="absolute top-8 w-30 sm:w-30 md:w-56 lg:w-56 bg-white border shadow-sm rounded divide-y divide-gray-300 z-10">
 
                 
                 <div className="flex flex-col p-3 gap-2 text-sm text-gray-800">
@@ -74,7 +74,7 @@ const showDiv = useSelector((state)=> state.toast.value)
         </div>
 
         
-        <div className="px-20 flex">
+        <div className="px-0 sm:px-0 md:px-10 lg:px-20 flex">
           <Link to="/cart">
             <i className="bx bx-cart text-[#57534e] text-4xl"></i>
           </Link>

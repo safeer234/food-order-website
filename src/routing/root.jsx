@@ -37,6 +37,7 @@ useEffect(() => {
   } else {
     dispatch(logOut());
     setLoggedUser(null);
+    dispatch(showLogin())
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -131,7 +132,7 @@ useEffect(() => {
 
           {/* ---------------------- MOBILE MENU ---------------------- */}
           {isOpen && (
-            <ul className="lg:hidden flex flex-col gap-4 mt-4 bg-white dark:bg-gray-900 p-4 rounded shadow-md absolute w-full z-50">
+            <ul className="lg:hidden mbile flex flex-col gap-4 mt-4 bg-white dark:bg-black p-4 rounded shadow-md absolute w-full z-50">
 
               <li><NavLink to="/home" onClick={() => setIsOpen(false)} className="text-[#57534e] hover:text-[#ef4444]">Home</NavLink></li>
               <li><NavLink to="/menu" onClick={() => setIsOpen(false)} className="text-[#57534e] hover:text-[#ef4444]">Menu</NavLink></li>

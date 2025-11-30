@@ -104,3 +104,7 @@ color:white
 input:invalid[focus = 'true'] ~  .lgin {
     display: block;
 }
+/* mobile */
+.dark .mbile{
+  background-color: rgb(40, 37, 37) ;
+}
