@@ -39,18 +39,18 @@ function Checkout() {
         
         /* Show each food item in checkout */
         checkoutFood.map((item) => (
-          <div key={item.id} className='flex gap-5 items-center border-[#ef4444] border-2 p-3 rounded-lg my-2 shadow-lg'>
+          <div key={item.id} className='block md:flex lg:flex gap-5 items-center border-[#ef4444] border-2 p-3 rounded-2xl my-2 shadow-lg'>
             {/* Food Image */}
-            <img className='w-20 h-20 rounded-lg' src={item.image} alt="" />
+            <img className='w-20 h-20  border-2 rounded-2xl border-[#ef4444]' src={item.image} alt="" />
 
             {/* Food Name & Hotel */}
-            <div className='flex gap-2'>
-              <h3>{item.name} (x{item.qty})</h3>
+            <div className='flex gap-20 md:gap-30 lg:gap-122 py-3 md:py-0 lg:py-0'>
+              <h3>{item.name}<span className='border ml-1 md:ml-0 lg:ml-0 p-0.5 text-center'>x{item.qty}</span></h3>
               <p className='text-[#f87171]'>{item.hotel}</p>
             </div>
 
             {/* Individual Total Price */}
-            <p className='ml-auto '>Total price: ₹{item.qty*item.price}</p>
+            <p className='ml-auto py-4 md:py-0 lg:py-0  '>Total price: ₹{item.qty*item.price}</p>
           </div>
         ))
       )}

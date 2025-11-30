@@ -31,23 +31,27 @@ function Cart() {
       /* CART ITEM LIST */
          cartFoods.map((item) => (
           <div key={item.id}>
-            <div className='block sm:block md:flex lg:flex items-center rounded-2xl border-3 shadow-2xl p-3 w-90 sm:w-90 md:w-184 lg:w-370 h-50 sm:h-50 md:h-30 lg:h-30 my-2 border-[#ef4444]'>
-              <img className='w-20 h-20' src={item.image} alt="" />
+            <div className='block sm:block md:block lg:flex items-center rounded-2xl border-3 shadow-2xl p-3 w-90 sm:w-90 md:w-184 lg:w-370 h-65  md:h-60 lg:h-30 my-2 border-[#ef4444]'>
+              <img className='w-20 h-20 border-2 rounded-2xl border-[#ef4444]' src={item.image} alt="" />
               
-              <div className='flex gap-20 sm:gap- md:gap-20 lg:gap-20'>
-                <div>
+              <div className='flex  gap-30  md:gap-20 lg:gap-20 py-6 md:py-0 lg:py-0'>
+                <div className='px-0 md:px-5 lg:px-5 '>
                   <h3>{item.name} <span className='border p-0.5 text-center'>x{item.qty}</span></h3>
                 </div>
                 <div>
                   <p className='text-[#f87171]'>{item.hotel}</p>
                 </div>
               </div>
+              <div className='ml-50 md:ml-40 lg:ml-230 mt-1 md:mt-0 lg:mt-0  '>
+                <p >TotalPrice: ₹{item.qty * item.price}</p>
 
-              <p className='ml-0 sm:ml-0 md:ml-40 lg:ml-230'>TotalPrice: ₹{item.qty * item.price}</p>
+              </div>
 
-              <div className='flex px-5 gap-3'>
+              
+
+              <div className='flex px-0 md:px-5   w-30 sm:w-30 md:w-40 lg:w-40 lg:px-5 gap-3'>
                 <button onClick={() => dispatch(incrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-lg bg-[#ef4444] hover:bg-[#f87171]'>+</button>
-                <button onClick={() => dispatch(decrementItem(item.id))} className='w-10 h-10 rounded-[410px] text-white text-2xl bg-[#ef4444] hover:bg-[#f87171]'>-</button>
+                <button onClick={() => dispatch(decrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-2xl bg-[#ef4444] hover:bg-[#f87171]'>-</button>
               </div>
             </div>
           </div>
