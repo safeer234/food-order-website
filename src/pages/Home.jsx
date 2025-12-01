@@ -104,8 +104,8 @@ function Home() {
                 <div className='block sm:block md:block lg:flex gap-40 px-15 text-center '>
 
                     {/* Burger Card */}
-                    <div>
-                        <img className='burgerimg w-90 h-60' src={homefoodimg1} alt="" />
+                    <div className='md:mb-19 lg:mb-0'>
+                        <img className='burgerimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg1} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Burger</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
@@ -116,8 +116,8 @@ function Home() {
                     </div>
 
                     {/* Pizza Card */}
-                    <div>
-                        <img className='pizzaimg w-90 h-60' src={homefoodimg2} alt="" />
+                    <div className='md:mb-19 lg:mb-0'>
+                        <img className='pizzaimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg2} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Pizza</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
@@ -129,7 +129,7 @@ function Home() {
 
                     {/* Fries Card */}
                     <div>
-                        <img className='frenchimg w-90 h-60' src={homefoodimg3} alt="" />
+                        <img className='frenchimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg3} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>French Fries</h3>
                         <div className='flex text-center justify-center'>
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>

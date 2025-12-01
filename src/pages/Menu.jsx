@@ -5,6 +5,7 @@ import FoodCircle from '../data/FoodCircle'
 import HotDeals from '../data/HotDeals'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSortType } from '../features/sort/SortSlice'
+import RestaurantDetails from '../data/RestaurantDetails'
 
 function Menu() {
 
@@ -101,6 +102,8 @@ const showDiv = useSelector((state)=> state.toast.value)
       <div className='px-15 py-16'>
         <h3 className='text-[#57534e] font-semibold'>Explore Restaurants 🍽️</h3>
       </div>
+
+      <RestaurantDetails />
     </div>
   )
 }

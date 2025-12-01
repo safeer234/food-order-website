@@ -66,7 +66,7 @@ useEffect(() => {
 
             {/* Desktop Menu */}
             <ul className="hidden lg:flex gap-8">
-              <li><NavLink className="text-[#57534e] hover:text-[#ef4444]" to="/home">Home</NavLink></li>
+              <li><NavLink className="text-[#57534e] hover:text-[#ef4444] " to="/home">Home</NavLink></li>
               <li><NavLink className="text-[#57534e] hover:text-[#ef4444]" to="/menu">Menu</NavLink></li>
               <li><NavLink className="text-[#57534e] hover:text-[#ef4444]" to="/myorder">Orders</NavLink></li>
               <li><NavLink className="text-[#57534e] hover:text-[#ef4444]" to="/about">About</NavLink></li>

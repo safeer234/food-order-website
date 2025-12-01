@@ -21,12 +21,12 @@ function Checkout() {
 
       {/* Checkout Page Header */}
       <div className='flex items-center justify-between'>
-        <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>Checkout</h1>
+        <h1 className=' text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-[#57534e]'>Checkout</h1>
 
         {/* Clear all checkout items */}
         <i 
           onClick={() =>dispatch(clearCheckout(checkoutFood)) }
-          class='bxr text-2xl text-[#ef4444] bx-trash hover:text-[#f87171] rounded-md'
+          class='bxr text-xl md:text-2xl lg:text-3xl text-[#ef4444] bx-trash hover:text-[#f87171] rounded-md'
         ></i>
       </div>
 
