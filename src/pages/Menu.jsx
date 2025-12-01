@@ -97,6 +97,10 @@ const showDiv = useSelector((state)=> state.toast.value)
 
       
       <HotDeals />
+
+      <div className='px-15 py-16'>
+        <h3 className='text-[#57534e] font-semibold'>Explore Restaurants 🍽️</h3>
+      </div>
     </div>
   )
 }

@@ -13,9 +13,9 @@ import vegcircle from '../assets/images/foodcircleimages/veg burger.jpg'
 import tacocircle from '../assets/images/foodcircleimages/tacos.jpg'
 import alfahamcircle from '../assets/images/foodcircleimages/alfaham.webp'
 import drinkscircle from '../assets/images/foodcircleimages/cool drinks.jpg'
-import homefoodimg1 from '../assets/images/homefoodimg/1000_F_1599070058_g1P7zQoEDxZvN4ErwdJ0HKyFfQ7DF7QB.jpg'
-import homefoodimg2 from '../assets/images/homefoodimg/1000_F_300233026_dIJcI3ry93imSyDqHM0z4naEGaTedJ07.jpg'
-import homefoodimg3 from '../assets/images/homefoodimg/1000_F_726813091_9yK4aWhJXPs3gz594mdxRxZ1akTUOinC.jpg'
+import chickencircle from '../assets/images/foodcircleimages/chicken burger.jpg'
+import frenchcircle from '../assets/images/foodcircleimages/french fries.jpg'
+import pizzacircle from '../assets/images/foodcircleimages/pizza.jpg'
 import nuggetscircle from '../assets/images/foodcircleimages/nuggets.jpg'
 
 function HotDeals() {
@@ -35,9 +35,9 @@ function HotDeals() {
 { id: 10, image: tacocircle, name: "Tacos", price: 124, qty: 1, hotel:"Let's Bake" },
 { id: 11, image: alfahamcircle, name: "Alfaham", price: 120, qty: 1, hotel:"Top Chicken" },
 { id: 12, image: drinkscircle, name: "Pepsi", price: 90, qty: 1, hotel:"Fry Gust" },
-{ id: 13, image: homefoodimg1, name: "Chicken Burger", price: 40, qty: 1, hotel:"Western Bakes" },
-{ id: 14, image: homefoodimg2, name: "French Fries", price: 70, qty: 1, hotel:"Choice Cafe" },
-{ id: 15, image: homefoodimg3, name: "Pizza", price: 145, qty: 1, hotel:"Looco's Pizza" },
+{ id: 13, image: chickencircle, name: "Chicken Burger", price: 40, qty: 1, hotel:"Western Bakes" },
+{ id: 14, image: frenchcircle, name: "French Fries", price: 70, qty: 1, hotel:"Choice Cafe" },
+{ id: 15, image: pizzacircle, name: "Pizza", price: 145, qty: 1, hotel:"Looco's Pizza" },
 { id: 16, image: nuggetscircle, name: "Chicken Nuggets", price: 118, qty: 1, hotel:"Hunger Broast" },
 
   ]
@@ -61,10 +61,10 @@ function HotDeals() {
   }
 
   return (
-    <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 scroll-smooth scrollbar-hide">
+    <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 px-4 scroll-smooth scrollbar-hide">
       {filteredDeals.length > 0 ? (
         filteredDeals.map((deal) => (
-          <div key={deal.id} className="snap-center bg-[#fef2f2] shadow-xl text-[#57534e] p-4 rounded-3xl">
+          <div key={deal.id} className="snap-center bg-white  shadow-2xl    text-[#57534e] pb-4  rounded-3xl">
             <DealsCard deal={deal} />
           </div>
         ))
