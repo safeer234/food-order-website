@@ -17,7 +17,7 @@ function Cart() {
 
       {/* CART HEADER */}
        <div className='flex items-center justify-between md:justify-between lg:justify-between'>
-        <h1 className=' text-xl  md:text-2xl lg:text-3xl font-bold mb-7 md:mb-4 lg:mb-4 px-6 md:px-0 lg:px-0 text-[#57534e]'>Cart</h1>
+        <h1 className=' text-xl  md:text-2xl lg:text-3xl font-bold mb-7 md:mb-4 lg:mb-4 px-6 md:px-0 lg:px-0 text-[#57534e]'>Ca<span className='text-[#ef4444]'>rt</span></h1>
         <i onClick={() => dispatch(clearCart(cartFoods))} class='bxr text-xl md:text-2xl lg:text-2xl text-[#ef4444] mr-10 sm:mr-5 md:mr-0 lg:md-0 bx-trash hover:text-[#f87171] rounded-md'></i>
       </div> 
 
@@ -31,8 +31,8 @@ function Cart() {
       /* CART ITEM LIST */
          cartFoods.map((item) => (
           <div key={item.id} className='px-6 md:px-0 lg:px-0'>
-            <div className='block sm:block md:block lg:flex items-center rounded-2xl border-3 shadow-2xl p-3 w-80 sm:w-90 md:w-184 lg:w-370 h-69  md:h-60 lg:h-30  my-2 border-[#ef4444]'>
-              <img className='w-39 md:w-55 lg:w-25 h-21 md:h-26 lg:h-20  border-2 rounded-2xl border-[#ef4444]' src={item.image} alt="" />
+            <div className='block sm:block md:block lg:flex items-center rounded-2xl border shadow-2xl p-3 w-80 sm:w-90 md:w-184 lg:w-370 h-69  md:h-60 lg:h-30  my-2 border-[#57534e]'>
+              <img className='w-39 md:w-55 lg:w-20 h-21 md:h-26 lg:h-20  border rounded-2xl border-[#57534e]' src={item.image} alt="" />
               
               <div className='flex  gap-30  md:gap-20 lg:gap-20 py-6 md:py-0 lg:py-0'>
                 <div className='px-0 md:px-2 lg:px-5 py-0 md:py-2 lg:py-0 '>
@@ -50,8 +50,8 @@ function Cart() {
               
 
               <div className='flex px-0 md:px-5   w-30 sm:w-30 md:w-40 lg:w-40 lg:px-5 gap-3'>
-                <button onClick={() => dispatch(incrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-lg bg-[#ef4444] hover:bg-[#f87171]'>+</button>
-                <button onClick={() => dispatch(decrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-2xl bg-[#ef4444] hover:bg-[#f87171]'>-</button>
+                <button onClick={() => dispatch(incrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-lg bg-[#57534e] hover:bg-[#f87171]'>+</button>
+                <button onClick={() => dispatch(decrementItem(item.id))} className='w-11 h-11 rounded-[410px] text-white text-2xl bg-[#57534e] hover:bg-[#f87171]'>-</button>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ function Cart() {
       </div> 
 
       {/* CHECKOUT BUTTON */}
-       <div className='flex justify-end'>
+       <div className='flex lg:justify-end md:justify-center justify-center '>
         <Link to='/checkout'>
           <button hidden={!proceedHid} onClick={() => dispatch(addCheckout(cartFoods))} className='flex items-center hover:bg-[#f87171] bg-[#ef4444] p-1.5 rounded-md text-white mr-6 md:mr-0 lg:mr-0'>
             Proceed to Checkout

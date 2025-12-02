@@ -1,21 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import OrderPlaced from '../components/animated/OrderPlaced';
 
 function Order() {
   const navigate = useNavigate();
-  useEffect(()=> {
-    const timer = setTimeout(()=>{
+  const [showText, setShowText] = useState(false);
+
+  // Redirect to myorder after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
       navigate('/myorder');
-return () => clearTimeout(timer)
-    },3000)
-  },[navigate])
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+  // Show text after icon animation (delay)
+  useEffect(() => {
+    const textTimer = setTimeout(() => {
+      setShowText(true);
+    }, 1500); // Delay 0.8s for example
+
+    return () => clearTimeout(textTimer);
+  }, []);
+
   return (
     <div className='flex flex-col items-center justify-center text-center h-screen'>
-      <i className='bx bx-badge-check animate-bounce text-6xl md:text-9xl lg:text-9xl text-green-500 mb-6'></i>
-      <h1 className=' text-2xl  md:text-6xl lg:text-6xl font-bold animate-pulse text-green-500'>Order placed successfully</h1>
-     
+      
+      <OrderPlaced />
 
-
+      {/* Show text ONLY after the delay */}
+      {showText && (
+        <h1 className='text-2xl md:text-6xl font-bold animate-pulse text-[#57534e]'>
+          Order placed successfully
+        </h1>
+      )}
 
     </div>
   );

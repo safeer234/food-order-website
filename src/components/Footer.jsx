@@ -101,9 +101,9 @@ function Footer() {
 
         <ul class="mt-6 space-y-4 text-sm">
           <li>
-            <NavLink to='/contact'>
+            <NavLink to='/home'>
               <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-              Contact
+              Home
             </a>
 
             </NavLink>
@@ -111,15 +111,30 @@ function Footer() {
           </li>
 
           <li>
-            <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-              FAQs
+            <NavLink to='/menu'>
+              <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+              Menu
             </a>
+
+            </NavLink>
           </li>
 
           <li>
-            <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-              Live Chat
+            <NavLink to='/cart'>
+              <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+              Cart
             </a>
+
+            </NavLink>
+          </li>
+
+           <li>
+            <NavLink to='/contact'>
+              <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+              Contact
+            </a>
+
+            </NavLink>
           </li>
         </ul>
       </div>

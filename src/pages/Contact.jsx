@@ -36,7 +36,7 @@ const handleChange = (e) => {
           <form onSubmit={handleSubmit} className="space-y-5">
           {/* Title */}
           <div className="text-center text-3xl font-semibold text-[#ef4444] mb-6">
-            Contact Us
+           <span className='text-[#57534e]'>Contact</span> Us
           </div>
 
          

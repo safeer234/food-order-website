@@ -21,7 +21,7 @@ function Checkout() {
 
       {/* Checkout Page Header */}
       <div className='flex items-center justify-between'>
-        <h1 className=' text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-[#57534e]'>Checkout</h1>
+        <h1 className=' text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-[#57534e]'>Check<span className='text-[#ef4444]'>out</span></h1>
 
         {/* Clear all checkout items */}
         <i 
@@ -39,9 +39,9 @@ function Checkout() {
         
         /* Show each food item in checkout */
         checkoutFood.map((item) => (
-          <div key={item.id} className='block md:flex lg:flex gap-5 items-center border-[#ef4444] border-2 p-3 rounded-2xl my-2 shadow-lg'>
+          <div key={item.id} className='block md:flex lg:flex gap-5 items-center border-[#57534e] border p-3 rounded-2xl my-2 shadow-lg'>
             {/* Food Image */}
-            <img className='w-20 h-20  border-2 rounded-2xl border-[#ef4444]' src={item.image} alt="" />
+            <img className='w-20 h-20  border- rounded-2xl border-[#57534e]' src={item.image} alt="" />
 
             {/* Food Name & Hotel */}
             <div className='flex gap-20 md:gap-30 lg:gap-122 py-3 md:py-0 lg:py-0'>
@@ -83,7 +83,7 @@ function Checkout() {
       </div>
 
       {/* Place Order Button */}
-      <div hidden={!optionHid} className='flex justify-end'>
+      <div hidden={!optionHid} className='flex justify-center md:justify-center lg:justify-end'>
         <Link to='/order'>
          <button 
             onClick={()=>{

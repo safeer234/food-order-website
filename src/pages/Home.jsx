@@ -108,7 +108,11 @@ function Home() {
                         <img className='burgerimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg1} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Burger</h3>
                         <div className='flex text-center justify-center'>
+                            <Link to='/menu'>
+                                
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
+
+                            </Link>
                             <div>
                                 <i className='bxr  bxs-chevron-right px-2 py-2 text-md text-[#ef4444]'></i>
                             </div>
@@ -120,7 +124,11 @@ function Home() {
                         <img className='pizzaimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg2} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>Chicken Pizza</h3>
                         <div className='flex text-center justify-center'>
+                            <Link to='/menu'>
+                                
                             <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
+
+                            </Link>
                             <div>
                                 <i className='bxr  bxs-chevron-right px-2 py-2 text-md text-[#ef4444]'></i>
                             </div>
@@ -132,7 +140,12 @@ function Home() {
                         <img className='frenchimg w-90 h-60 md:ml-35 lg:ml-0' src={homefoodimg3} alt="" />
                         <h3 className='text-[#57534e] font-bold text-xl'>French Fries</h3>
                         <div className='flex text-center justify-center'>
-                            <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
+                            <Link to='/menu'>
+                                 <button className='text-[#ef4444] cursor-pointer'>Order Now</button>
+
+                            </Link>
+                            
+                           
                             <div>
                                 <i className='bxr  bxs-chevron-right px-2 py-2 text-md text-[#ef4444]'></i>
                             </div>
