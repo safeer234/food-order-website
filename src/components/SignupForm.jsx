@@ -42,7 +42,7 @@ const handleSubmit = (e) => {
     username: inputs.username,
     email: inputs.email,
     password: inputs.password,
-   
+  
 
   };
 
@@ -56,6 +56,8 @@ const handleSubmit = (e) => {
   dispatch(showSign()); // close signup
   dispatch(showLogin()); // open login
 };
+
+
 
  
   return (

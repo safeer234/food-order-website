@@ -23,7 +23,7 @@ function TrackOrder() {
             </div>
             </div>
 
-           <div className='lg:flex lg:justify-center md:px-40'>
+           <div className='lg:flex lg:justify-center px-0 md:px-40 lg:px-0 lg:bg-amber-300 lg:mb-40  '>
 
          
 
@@ -50,9 +50,11 @@ function TrackOrder() {
             <div className=' items-center flex  '>
                 <div className=' scale-35 rounded-[410px]'>
                     <WorkIcon  />
+                    
 
                 </div>
-                <div className=''>
+                
+                <div className='flex'>
                      <p className='text-lg font-medium text-[#57534e]'>Chef at Work</p>
 
                 </div>
@@ -66,7 +68,7 @@ function TrackOrder() {
 
 
 
-             <div className=' items-center flex    '>
+             <div className=' items-center flex     '>
                 <div className=' scale-35 rounded-[410px]'>
                     <DeliveryGuy  />
 

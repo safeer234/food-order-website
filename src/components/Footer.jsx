@@ -121,7 +121,7 @@ function Footer() {
 
           <li>
             <NavLink to='/cart'>
-              <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+              <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
               Cart
             </a>
 
@@ -130,7 +130,7 @@ function Footer() {
 
            <li>
             <NavLink to='/contact'>
-              <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+              <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
               Contact
             </a>
 

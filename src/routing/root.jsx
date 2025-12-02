@@ -23,7 +23,7 @@ function Root() {
   
 
 
-  // Auto login if stored in localStorage
+// Auto login if stored in localStorage
  // AUTO LOGIN CHECK ON PAGE LOAD
 const [loggedUser, setLoggedUser] = useState(null);
 
@@ -32,6 +32,7 @@ useEffect(() => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   if (savedUser && isLoggedIn) {
+    
     dispatch(loginSuccess());
     setLoggedUser(savedUser); // 👈 store user info
   } else {
@@ -42,6 +43,7 @@ useEffect(() => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
+
 
 
 

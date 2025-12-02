@@ -19,19 +19,22 @@ function Order() {
   useEffect(() => {
     const textTimer = setTimeout(() => {
       setShowText(true);
-    }, 1500); // Delay 0.8s for example
+    }, 1400); // Delay 0.8s for example
 
     return () => clearTimeout(textTimer);
   }, []);
 
   return (
     <div className='flex flex-col items-center justify-center text-center h-screen'>
+      <div className='scale-40 md:scale-80 lg:scale-80'>
+        <OrderPlaced />
+
+      </div>
       
-      <OrderPlaced />
 
       {/* Show text ONLY after the delay */}
       {showText && (
-        <h1 className='text-2xl md:text-6xl font-bold animate-pulse text-[#57534e]'>
+        <h1 className='text-2xl md:text-5xl font-bold animate-pulse text-[#57534e]'>
           Order placed successfully
         </h1>
       )}
