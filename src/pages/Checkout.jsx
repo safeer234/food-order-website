@@ -45,7 +45,7 @@ function Checkout() {
 
             {/* Food Name & Hotel */}
             <div className='flex gap-20 md:gap-30 lg:gap-122 py-3 md:py-0 lg:py-0'>
-              <h3>{item.name}<span className='border ml-1 md:ml-0 lg:ml-0 p-0.5 text-center'>x{item.qty}</span></h3>
+              <h3>{item.name}<span className='border ml-1 md:ml-0 lg:ml-2 p-0.5 text-center'>x{item.qty}</span></h3>
               <p className='text-[#f87171]'>{item.hotel}</p>
             </div>
 
