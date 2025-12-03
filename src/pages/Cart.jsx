@@ -30,15 +30,15 @@ function Cart() {
 
       /* CART ITEM LIST */
          cartFoods.map((item) => (
-          <div key={item.id} className='px-6 md:px-0  lg:px-0'>
-            <div className='block sm:block md:block lg:flex lg:justify-between  items-center rounded-2xl border shadow-2xl p-3 w-80 sm:w-90 md:w-184 lg:w-370 h-69  md:h-60 lg:h-30  my-2 border-[#57534e]'>
+          <div key={item.id} className='px-8 md:px-0  lg:px-0'>
+            <div className='block sm:block md:block lg:flex lg:justify-between  items-center rounded-2xl border shadow-2xl p-3 w-76 sm:w-90 md:w-184 lg:w-370 h-62  md:h-60 lg:h-30  my-2 border-[#57534e]'>
               
-                <img className='w-39 md:w-55 lg:w-20 h-21 md:h-26 lg:h-20  border rounded-2xl border-[#57534e]' src={item.image} alt="" />
+                <img className='w-25 md:w-55 lg:w-20 h-20 md:h-26 lg:h-20  border rounded-2xl border-[#57534e]' src={item.image} alt="" />
 
             
               
               
-              <div className='flex   gap-30  md:gap-20 lg:gap-30 py-6 md:py-0 lg:py-0'>
+              <div className='flex   gap-20  md:gap-20 lg:gap-30 py-6 md:py-0 lg:py-0'>
                 <div className='px-0 md:px-2 lg:px-3 py-0 md:py-2 lg:py-0 '>
                   <h3>{item.name} <span className='border p-0.5 text-center'>x{item.qty}</span></h3>
                 </div>
@@ -46,7 +46,7 @@ function Cart() {
                   <p className='text-[#f87171] ml-0 md:ml-99 lg:ml-0'>{item.hotel}</p>
                 </div>
               </div>
-              <div className='ml-50 md:ml-139 lg:px-20 mt-1 md:mt-0 lg:mt-0  '>
+              <div className='ml-40 md:ml-139 lg:px-20 mt-1 md:mt-0 lg:mt-0  '>
                 <p >TotalPrice: ₹{item.qty * item.price}</p>
 
               </div>
