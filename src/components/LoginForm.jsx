@@ -29,6 +29,7 @@ const handleSubmit = (e) => {
   if (!user) {
     alert("No account found or incorrect credentials, please Sign Up!");
     dispatch(showSign());
+    dispatch(hideLogin())
     return;
   }
 
