@@ -10,12 +10,15 @@ function SignupForm() {
      errName: false,
     errEmail: false,
     errPassword: false,
+    errNumber:false
 
   })
 const [inputs, setInputs] = useState({
 username: '',
   email:'',
-  password:''
+  password:'',
+  number:'',
+   countryCode: "+91",
   
 
 })
@@ -35,6 +38,7 @@ const handleSubmit = (e) => {
   if (userExists) {
     alert("User already exists! Please Login.");
     dispatch(showLogin());
+    dispatch(hideSign())
     return;
   }
 
@@ -42,6 +46,7 @@ const handleSubmit = (e) => {
     username: inputs.username,
     email: inputs.email,
     password: inputs.password,
+    number:inputs.number
   
 
   };
@@ -92,8 +97,59 @@ const handleSubmit = (e) => {
     focus = {focus.errName.toString()} 
     required/>
       <br/>
-    <span className=' lgin text-red-600 text-[12px] px-2'>Usename should be 3-16 characters</span>
+    <span className=' lgin text-red-600 text-[12px] px-2'>Username should be 3-16 characters</span>
                 </div>
+
+                
+
+               
+
+                   <div className=' flex gap-1 mt-8'>
+                    <div>
+
+                    
+                     <select
+    name="countryCode"
+    className="border-2 border-gray-300 rounded-md h-9 "
+    value={inputs.countryCode}
+    onChange={handleChange}
+  >
+    <option value="+91">🇮🇳 +91</option>
+    <option value="+1">🇺🇸 +1</option>
+    <option value="+44">🇬🇧 +44</option>
+  </select>
+  </div>
+
+  <div>
+
+  
+
+
+              <input className='border-2 border-[#d1d5db] w-50 h-9 rounded-md placeholder:text-sm p-2' type="tel" placeholder='Your phone number'  name = 'number'
+         value ={inputs.number}
+         onChange={handleChange}
+          pattern="^[6-9]\d{9}$"
+         onBlur={()=> setFocus({...focus, errEmail: true })} 
+         focus = {focus.errEmail.toString()} 
+         required   /><br/>
+         <span className=' lgin text-red-600 text-[12px] px-2'>   Enter a valid 10-digit number</span>
+
+         </div>
+         
+
+    
+           </div>
+           
+
+            
+           
+
+
+
+
+
+
+
 
                  <div className='mt-8'>
               <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="email" placeholder='Your email'  name = 'email'

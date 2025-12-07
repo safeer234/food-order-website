@@ -18,6 +18,8 @@ function Root() {
   const loginValue = useSelector((state) => state.login.value);
   const signValue = useSelector((state) => state.sign.value);
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
 
   const [isOpen, setIsOpen] = useState(false);
   
@@ -94,32 +96,20 @@ useEffect(() => {
   ) : (
     <div className="relative group">
       {/* User Icon */}
-      <div className="flex items-center gap-2 cursor-pointer">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          className="w-8 h-8 rounded-full"
-          alt="user"
-        />
-        <span className="text-[#57534e] font-medium">{loggedUser?.username}</span>
-      </div>
+      <div
+  className="flex items-center gap-2 cursor-pointer"
+  onClick={() => setIsProfileOpen(true)}
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+    className="w-8 h-8 rounded-full"
+    alt="user"
+  />
+  <span className="text-[#57534e] font-medium">{loggedUser?.username}</span>
+</div>
 
-      {/* Dropdown Menu */}
-      <div className="absolute right-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md p-3 w-50">
-        <p className="text-sm text-gray-700 mb-2">Logged in as</p>
-        <p className="font-semibold text-gray-800">{loggedUser?.email}</p>
 
-        <button
-          onClick={() => {
-            localStorage.removeItem("user");
-            localStorage.removeItem("isLoggedIn");
-            dispatch(logOut());
-            dispatch(showLogin());
-          }}
-          className="w-full mt-3 bg-red-500 text-white py-1 rounded-md hover:bg-red-600"
-        >
-          Logout
-        </button>
-      </div>
+      
     </div>
   )}
 
@@ -167,6 +157,9 @@ useEffect(() => {
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400">
           {loggedUser?.email}
+        </p>
+         <p className="text-sm text-gray-500 dark:text-gray-400">
+          {loggedUser?.number}
         </p>
       </div>
     </div>
@@ -223,7 +216,78 @@ useEffect(() => {
         </main>
 
         <Footer />
+        
       </div>
+
+
+      {/* USER PROFILE SIDEBAR */}
+{isProfileOpen && (
+  <div className="fixed inset-0 bg-black/50 z-999" onClick={() => setIsProfileOpen(false)}>
+    {/* Sidebar */}
+    <div
+      className="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-5
+                 animate-slide-left"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Close Button */}
+      <button
+        className="text-gray-600 text-2xl absolute top-4 right-4"
+        onClick={() => setIsProfileOpen(false)}
+      >
+        ×
+      </button>
+
+      <div className="mt-10 text-center">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          className="w-20 h-20 rounded-full mx-auto"
+          alt="user"
+        />
+        <h2 className="text-xl font-semibold mt-3">{loggedUser?.username}</h2>
+        <p className="text-gray-500">{loggedUser?.email}</p>
+        <p className='text-gray-500'>{loggedUser?.number}</p>
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-8 flex flex-col ">
+        
+        <NavLink
+          to="/myorder"
+          onClick={() => setIsProfileOpen(false)}
+          className="text-[#ef4444] font-medium text-center"
+        >
+          My Orders
+        </NavLink><br />
+
+         <NavLink
+          to="/myorder"
+          onClick={() => setIsProfileOpen(false)}
+          className="text-[#ef4444] font-medium text-center"
+        >
+          Manage address
+        </NavLink>
+        <div className='flex inset-0 h-screen   justify-center items-center'>
+          <button
+          onClick={() => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("isLoggedIn");
+            dispatch(logOut());
+            dispatch(showLogin());
+            setIsProfileOpen(false);
+          }}
+          className="bg-red-500 text-white py-2 w-60 rounded-lg hover:bg-red-600"
+        >
+          Logout
+        </button>
+
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* ---------------------- LOGIN MODAL ---------------------- */}
       {loginValue && (
