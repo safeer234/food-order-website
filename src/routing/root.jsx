@@ -254,33 +254,36 @@ useEffect(() => {
         <NavLink
           to="/myorder"
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#57534e] font-medium mb-1 hover:text-[#ef4444] "
+          className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444] "
         >
           My Orders
         </NavLink>
         <hr className='text-gray-300' />
 
          <NavLink
-          to=""
+          to="/address"
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#57534e] font-medium mb-1 hover:text-[#ef4444] "
+          className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444] "
         >
           Manage Address
         </NavLink><hr className='text-gray-300' />
+
          <NavLink
-          to=""
+          to="/wallet"
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#57534e] font-medium mb-1hover:text-[#ef4444] hover:text-[#ef4444] "
+          className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444]  "
         >
-         Wallet
+         My Wallet
         </NavLink><hr className='text-gray-300' />
+
+
          <NavLink
           to=""
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#57534e] font-medium hover:text-[#ef4444] "
+          className="text-[#57534e] font-medium p-1 hover:text-[#ef4444] "
         >
           Manage Account
-        </NavLink><hr className='text-gray-300' />
+        </NavLink><hr className='text-gray-300 ' />
 
         
         <div className='flex inset-0  py-80 justify-center items-center'>

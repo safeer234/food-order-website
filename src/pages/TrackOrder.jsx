@@ -18,6 +18,7 @@ function TrackOrder() {
                  <div >
                    <img className=' w-40 h-40 rounded-[410px] border-4 lg:w-50 lg:h-50 lg:rounded-[410px]  lg:border-4 border-red-600' src={item.image} alt="" />
                      <p className='text-center py-2 text-xl text-[#57534e]'>{item.name}</p>
+                     <p className='text-center  text-md text-[#57534e]'>Order Id:456789 </p>
                   
 
             </div>
