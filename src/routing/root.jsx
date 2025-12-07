@@ -245,28 +245,45 @@ useEffect(() => {
         />
         <h2 className="text-xl font-semibold mt-3">{loggedUser?.username}</h2>
         <p className="text-gray-500">{loggedUser?.email}</p>
-        <p className='text-gray-500'>{loggedUser?.number}</p>
+        <p className='text-gray-500'>+91 {loggedUser?.number}</p>
       </div>
 
       {/* Buttons */}
       <div className="mt-8 flex flex-col ">
-        
+        <hr className='text-gray-300' />
         <NavLink
           to="/myorder"
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#ef4444] font-medium text-center"
+          className="text-[#57534e] font-medium mb-1 hover:text-[#ef4444] "
         >
           My Orders
-        </NavLink><br />
+        </NavLink>
+        <hr className='text-gray-300' />
 
          <NavLink
-          to="/myorder"
+          to=""
           onClick={() => setIsProfileOpen(false)}
-          className="text-[#ef4444] font-medium text-center"
+          className="text-[#57534e] font-medium mb-1 hover:text-[#ef4444] "
         >
-          Manage address
-        </NavLink>
-        <div className='flex inset-0 h-screen   justify-center items-center'>
+          Manage Address
+        </NavLink><hr className='text-gray-300' />
+         <NavLink
+          to=""
+          onClick={() => setIsProfileOpen(false)}
+          className="text-[#57534e] font-medium mb-1hover:text-[#ef4444] hover:text-[#ef4444] "
+        >
+         Wallet
+        </NavLink><hr className='text-gray-300' />
+         <NavLink
+          to=""
+          onClick={() => setIsProfileOpen(false)}
+          className="text-[#57534e] font-medium hover:text-[#ef4444] "
+        >
+          Manage Account
+        </NavLink><hr className='text-gray-300' />
+
+        
+        <div className='flex inset-0  py-80 justify-center items-center'>
           <button
           onClick={() => {
             localStorage.removeItem("user");
@@ -275,7 +292,7 @@ useEffect(() => {
             dispatch(showLogin());
             setIsProfileOpen(false);
           }}
-          className="bg-red-500 text-white py-2 w-60 rounded-lg hover:bg-red-600"
+          className="bg-red-500 text-white py-2 w-60 rounded-lg hover:bg-red-600 mb-4"
         >
           Logout
         </button>

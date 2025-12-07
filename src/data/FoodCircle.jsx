@@ -36,7 +36,7 @@ function FoodCircle() {
         },
          {
             image:nuggetscircle,
-            name: 'Chicken Nuggets'
+            name: 'Nuggets'
 
         },
         {
