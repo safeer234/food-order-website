@@ -250,40 +250,72 @@ useEffect(() => {
 
       {/* Buttons */}
       <div className="mt-8 flex flex-col ">
+        
         <hr className='text-gray-300' />
-        <NavLink
+         <div className='flex gap-2 items-center'>
+          <i class='bx text-xl text-[#ef4444]  bx-user' ></i> 
+          <NavLink
+          to=""
+          onClick={() => setIsProfileOpen(false)}
+          className="text-[#57534e] font-medium p-1 hover:text-[#ef4444] "
+        >
+          Profile
+        </NavLink>
+
+         </div>
+         <hr className='text-gray-300 ' />
+        <div className='flex items-center gap-2'>
+          <i class='bx text-xl text-[#ef4444] bx-shopping-bag'></i> 
+          <NavLink
           to="/myorder"
           onClick={() => setIsProfileOpen(false)}
           className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444] "
         >
           My Orders
         </NavLink>
+
+        </div>
         <hr className='text-gray-300' />
+        
+        <div className='flex items-center gap-2'>
+          <i className='bx text-[#ef4444] text-xl  bx-location-alt-2'></i> 
+
+        
 
          <NavLink
           to="/address"
           onClick={() => setIsProfileOpen(false)}
           className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444] "
         >
-          Manage Address
-        </NavLink><hr className='text-gray-300' />
+          My Address
+        </NavLink>
+        </div>
+        <hr className='text-gray-300' />
 
-         <NavLink
+
+        <div className='flex gap-2'>
+          <i class='bx  bx-wallet text-[#ef4444] text-xl' ></i> 
+          <NavLink
           to="/wallet"
           onClick={() => setIsProfileOpen(false)}
           className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444]  "
         >
          My Wallet
-        </NavLink><hr className='text-gray-300' />
+        </NavLink>
+
+        </div>
+         <hr className='text-gray-300' />
 
 
-         <NavLink
-          to=""
-          onClick={() => setIsProfileOpen(false)}
-          className="text-[#57534e] font-medium p-1 hover:text-[#ef4444] "
-        >
-          Manage Account
-        </NavLink><hr className='text-gray-300 ' />
+        
+
+
+
+
+
+
+
+         
 
         
         <div className='flex inset-0  py-80 justify-center items-center'>
