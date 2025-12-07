@@ -14,38 +14,38 @@ function AddAddress() {
             <div className='flex  justify-center '>
                 <form action="">
                     <div className='py-3'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Your Name' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-70 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Your Name' />
 
 
                     </div>
 
                      <div className='py-7'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Your Email' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-70 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Your Email' />
 
 
                     </div>
 
                     <div className='py-3'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Phone Number' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-70 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Enter Phone Number' />
 
 
                     </div>
 
                     <div className='py-7'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Delivery Address' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-70 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Delivery Address' />
 
 
                     </div>
 
                     <div className='py-3'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Nearby Landmark (Optional)' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-70 md:w-150 lg:w-170 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Nearby Landmark (Optional)' />
 
 
                     </div>
 
-                      <div className='py-7 flex gap-2'>
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-75 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='House (Optional)' />
-                        <input type="text" className='border-2 border-[#d1d5db] w-85 md:w-150 lg:w-75 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Floor Landmark (Optional)' />
+                      <div className='py-7 flex lg:gap-2 gap-4 '>
+                        <input type="text" className='border-2 border-[#d1d5db] w-30 md:w-50 lg:w-75 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='House (Optional)' />
+                        <input type="text" className='border-2 border-[#d1d5db] w-30 md:w-50 lg:w-75 lg:h-9 rounded-md placeholder:text-sm p-2' placeholder='Floor Landmark (Optional)' />
 
 
                     </div>
@@ -53,7 +53,7 @@ function AddAddress() {
             </div>
 
             <div className='flex justify-center'>
-                <button className='bg-[#ef4444] text-white py-2 w-85 md:w-150 lg:w-170 rounded-lg hover:bg-red-600 mb-4'>Save</button>
+                <button className='bg-[#ef4444] text-white py-2 w-70 md:w-150 lg:w-170 rounded-lg hover:bg-red-600 mb-4'>Save</button>
             </div>
 
         </div>
