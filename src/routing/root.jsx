@@ -255,7 +255,7 @@ useEffect(() => {
          <div className='flex gap-2 items-center'>
           <i class='bx text-xl text-[#ef4444]  bx-user' ></i> 
           <NavLink
-          to=""
+          to="/profile"
           onClick={() => setIsProfileOpen(false)}
           className="text-[#57534e] font-medium p-1 hover:text-[#ef4444] "
         >
@@ -327,7 +327,7 @@ useEffect(() => {
             dispatch(showLogin());
             setIsProfileOpen(false);
           }}
-          className="bg-red-500 text-white py-2 w-60 rounded-lg hover:bg-red-600 mb-4"
+          className="bg-[#ef4444] text-white py-2 w-60 rounded-lg hover:bg-red-600 mb-4"
         >
           Logout
         </button>

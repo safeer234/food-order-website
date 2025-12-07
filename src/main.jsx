@@ -17,11 +17,15 @@ import Myorders from './pages/Myorders.jsx';
 import TrackOrder from './pages/TrackOrder.jsx';
 import ManageAddress from './pages/ManageAddress.jsx';
 import Wallet from './pages/Wallet.jsx';
-
+import Profile from './pages/Profile.jsx';
+import EditProfile from './pages/EditProfile.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AddAddress from './pages/AddAddress.jsx';
+
+
 
 
 
@@ -44,6 +48,9 @@ const router = createBrowserRouter([
        { path: "/trackorder", element: <TrackOrder /> },
        { path: "/address", element: <ManageAddress /> },
        { path: "/wallet", element: <Wallet /> },
+        { path: "/profile", element: <Profile /> },
+        { path: "/editprofile", element: <EditProfile /> },
+         { path: "/addaddress", element: <AddAddress /> },
     ],
   },
 ]);
