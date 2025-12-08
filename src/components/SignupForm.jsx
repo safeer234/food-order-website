@@ -25,7 +25,9 @@ username: '',
 
 const handleChange = (e) => {
   const name = e.target.name
-  const value = e.target.value
+  let value = e.target.value
+
+  
   setInputs({...inputs, [name]: value})
 }
 const handleSubmit = (e) => {
@@ -50,6 +52,15 @@ const handleSubmit = (e) => {
   
 
   };
+
+  
+  const nameWithoutSpaces = inputs.username.replace(/\s/g, "");
+
+  if (nameWithoutSpaces.length < 3 || nameWithoutSpaces.length > 16) {
+    
+    return;
+  }
+
 
  
 
@@ -92,7 +103,7 @@ const handleSubmit = (e) => {
     name = 'username' 
     value ={inputs.username} 
     onChange={handleChange} 
-    pattern="^[A-Za-z0-9]{3,16}$" 
+   pattern="^[A-Za-z0-9 ]{3,30}$"
     onBlur={()=> setFocus({...focus, errName: true })} 
     focus = {focus.errName.toString()} 
     required/>

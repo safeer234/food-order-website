@@ -1,13 +1,31 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { showDiv, hideDiv } from '../features/manage account/ManageAccount';
+import { showDiv, hideDiv,} from '../features/manage account/ManageAccount';
 
 function Profile() {
      const savedUser = JSON.parse(localStorage.getItem("user"));
+    
     const dispatch = useDispatch()
     const showD = useSelector((state)=>state.manage.value)
-   
+   const handleDeleteAccount = () => {
+
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if(!savedUser) return;
+    // load all users
+    let users = JSON.parse(localStorage.getItem("users")) || []
+    // to remove current user
+    users = users.filter((u) =>u.email !== savedUser.email);
+    // to save updated user list
+    localStorage.setItem("users", JSON.stringify(users));
+    // remove current session
+    localStorage.removeItem("user");
+    localStorage.removeItem("isLoggedIn")
+    // to redirect to home|| popup login modal
+    
+     window.location.href = "/home"; 
+   }
+  
   return (
  
     <div className='bg-[#fef2f2] py-9'>
@@ -28,7 +46,7 @@ function Profile() {
                 </div>
 
                 <div className='flex justify-center gap-3'>
-                    <button className='border-2 w-20 h-8 rounded-md border-[#ef4444] text-[#ef4444] hover:border-0 hover:bg-[#ef4444] hover:text-[white]'>Yes</button>
+                    <button onClick={handleDeleteAccount} className='border-2 w-20 h-8 rounded-md border-[#ef4444] text-[#ef4444] hover:border-0 hover:bg-[#ef4444] hover:text-[white]'>Yes</button>
                     <button onClick={()=> dispatch(hideDiv())} className=' w-20 h-8 rounded-md bg-[#ef4444] text-[white] hover:border-2 hover:bg-[white] hover:text-[#ef4444]'>No</button>
 
                 </div>
@@ -41,7 +59,7 @@ function Profile() {
 
 
          
- <div className={`transition-all ${showD  ? "opacity-40" : ""}`}>
+ <div className={`transition-all ${showD  ? "opacity-20" : ""}`}>
 
 
         <div className='px-6'>

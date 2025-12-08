@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const manageSlice = createSlice({
     name:'manage',
     initialState:{
-        value:false
+        value:false,
+       
     },
     reducers:{
         showDiv:(state) =>{
@@ -10,8 +11,9 @@ export const manageSlice = createSlice({
         },
         hideDiv:(state) =>{
             state.value = false
-        }
+        },
+        
     }
 })
-export const {showDiv, hideDiv} = manageSlice.actions
+export const {showDiv, hideDiv, deleteAccount} = manageSlice.actions
 export default manageSlice.reducer

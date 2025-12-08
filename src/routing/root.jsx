@@ -33,15 +33,15 @@ useEffect(() => {
   const savedUser = JSON.parse(localStorage.getItem("user"));
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-  if (savedUser && isLoggedIn) {
-    
-    dispatch(loginSuccess());
-    setLoggedUser(savedUser); // 👈 store user info
-  } else {
-    dispatch(logOut());
-    setLoggedUser(null);
-    dispatch(showLogin())
-  }
+ if (savedUser && isLoggedIn) {
+  const isAdmin = savedUser.role === "admin";
+  dispatch(loginSuccess({ user: savedUser, isAdmin }));
+  setLoggedUser(savedUser);
+} else {
+  dispatch(logOut());
+  setLoggedUser(null);
+  dispatch(showLogin());
+}
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
