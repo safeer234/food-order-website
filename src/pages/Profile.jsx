@@ -1,10 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { showDiv, hideDiv } from '../features/manage account/ManageAccount';
+
 function Profile() {
      const savedUser = JSON.parse(localStorage.getItem("user"));
-    
+    const dispatch = useDispatch()
+    const showD = useSelector((state)=>state.manage.value)
+   
   return (
+ 
     <div className='bg-[#fef2f2] py-9'>
+
+        <div hidden={!showD} className='z-50 absolute flex justify-center items-center h-screen inset-0  '>
+            <div className='w-80 h-60 rounded-md shadow-2xl bg-white'>
+                <div className='flex justify-between p-6 items-center'>
+                    <p className='text-xl font-medium text-[#57534e]'>Are you Sure</p>
+                    <div className='flex items-center text-center'>
+                         <i onClick={()=> dispatch(hideDiv())} className='bx text-xl font-bold rounded-2xl border-3 h-8 w-8 text-[#ef4444] bx-x' ></i> 
+
+                    </div>
+                   
+                   
+                </div> 
+                <div className='text-center flex justify-center items-center py-10'>
+                    <p className='text-[#57534e]'>it will remove your all information.</p>
+                </div>
+
+                <div className='flex justify-center gap-3'>
+                    <button className='border-2 w-20 h-8 rounded-md border-[#ef4444] text-[#ef4444] hover:border-0 hover:bg-[#ef4444] hover:text-[white]'>Yes</button>
+                    <button onClick={()=> dispatch(hideDiv())} className=' w-20 h-8 rounded-md bg-[#ef4444] text-[white] hover:border-2 hover:bg-[white] hover:text-[#ef4444]'>No</button>
+
+                </div>
+                
+
+            </div>
+
+
+        </div>
+
+
+         
+ <div className={`transition-all ${showD  ? "opacity-40" : ""}`}>
+
+
         <div className='px-6'>
             <p className='text-3xl font-bold text-[#57534e]'>Profi<span className='text-[#ef4444]'>le</span></p>
         </div>
@@ -66,7 +105,7 @@ function Profile() {
 
                 <div className='flex gap-3 px-3 items-center py-3'>
                     <i className='bx text-2xl text-[#ef4444]   bx-trash' ></i> 
-                    <p className='text-xl hover:text-[#ef4444]'>Delete Account</p>
+                    <p onClick={()=> dispatch(showDiv())} className='text-xl hover:text-[#ef4444]'>Delete Account</p>
                 </div>
 
                 </div>
@@ -75,8 +114,11 @@ function Profile() {
             </div>
         </div>
            
+
+           </div>
       
     </div>
+    
   )
 }
 

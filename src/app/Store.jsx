@@ -10,6 +10,7 @@ import myReducer from '../features/myorder/MySlice'
 import authReducer from '../features/auth/AuthSlice'
 import signReducer from '../features/login and signup/SignupSlice'
 import trackReducer from '../features/track/TrackSlice'
+import manageReducer from '../features/manage account/ManageAccount'
  const store = configureStore({
   reducer: {
 cart:cartReducer,
@@ -22,7 +23,8 @@ toast:toastReducer,
 myOrder:myReducer,
 auth:authReducer,
 sign:signReducer,
-track:trackReducer
+track:trackReducer,
+manage:manageReducer
   }
   
     
