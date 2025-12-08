@@ -80,14 +80,18 @@ const handleChange = (e) => {
        </div>
 
        <div className='py-8'>
-         <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="password" placeholder='Your password'   name = 'password' 
+         <input className='border-2 border-[#d1d5db] w-69 h-9 rounded-md placeholder:text-sm p-2' type="password" placeholder='Your password'   
+         name = 'password' 
       value ={inputs.password} 
-      onChange={handleChange} 
-      pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$' 
+      onChange={handleChange}
+     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,16}$"
+
+ 
+
       onBlur={()=> setFocus({...focus, errPassword: true })} 
       focus = {focus.errPassword.toString()} 
       required  /><br/>
-      <span className='lgin text-red-600 text-[12px] px-2'>Password must have minimum 8 characters and <br /> include atleast an uppercase, digit and special <br /> characters </span>
+      <span className='lgin text-red-600 text-[12px] px-2'>Password must have minimum 8-16 characters and <br /> include atleast an uppercase, digit and special <br /> characters </span>
 
        </div>
 
