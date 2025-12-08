@@ -22,7 +22,7 @@ function Profile() {
     localStorage.removeItem("user");
     localStorage.removeItem("isLoggedIn")
     // to redirect to home|| popup login modal
-    
+
      window.location.href = "/home"; 
    }
   
@@ -63,7 +63,7 @@ function Profile() {
 
 
         <div className='px-6'>
-            <p className='text-3xl font-bold text-[#57534e]'>Profi<span className='text-[#ef4444]'>le</span></p>
+            <p className=' text-xl md:text-2xl lg:text-3xl font-bold text-[#57534e]'>Profi<span className='text-[#ef4444]'>le</span></p>
         </div>
 
         <div className='lg:flex flex justify-center py-18'>

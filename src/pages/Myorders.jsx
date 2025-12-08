@@ -13,11 +13,11 @@ const amountHid = useSelector((state) => state.myOrder.orders.length>0);
     <div className="p-6">
       <div className='flex items-center justify-between'>
         <div>
-          <h1 className='text-3xl font-bold mb-4 text-[#57534e]'>My <span className='text-[#ef4444]'>Orders</span></h1>
+          <h1 className='text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-[#57534e]'>My <span className='text-[#ef4444]'>Orders</span></h1>
         </div>
 
         <div>
-          <i onClick={() =>dispatch(clearOrders(myFood)) }  class='bxr text-2xl text-[#ef4444]  bx-trash hover:text-[#f87171] rounded-md'></i> 
+          <i onClick={() =>dispatch(clearOrders(myFood)) }  class='bxr text-xl text-[#ef4444]  bx-trash hover:text-[#f87171] rounded-md'></i> 
 
 
         </div>

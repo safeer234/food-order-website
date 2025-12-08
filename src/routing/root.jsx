@@ -169,13 +169,38 @@ useEffect(() => {
     </div>
 
     {/* My Orders Button */}
-    <NavLink
+   
+
+     <NavLink
+          to="/profile"
+          onClick={() => {setIsProfileOpen(false);setIsOpen(false)}}
+          className="text-[#57534e] font-medium p-1 hover:text-[#ef4444] "
+        >
+          Profile
+        </NavLink>
+         <NavLink
       to="/myorder"
       onClick={() => setIsOpen(false)}
-      className="text-[#ef4444] font-medium"
+      className="text-[#57534e] p-1 font-medium"
     >
       My Orders
     </NavLink>
+
+     <NavLink
+          to="/address"
+          onClick={() => {setIsProfileOpen(false);setIsOpen(false)}}
+          className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444] "
+        >
+          My Address
+        </NavLink>
+
+         <NavLink
+          to="/wallet"
+          onClick={() =>  {setIsProfileOpen(false);setIsOpen(false)}}
+          className="text-[#57534e] font-medium mb-1 p-1 hover:text-[#ef4444]  "
+        >
+         My Wallet
+        </NavLink>
 
     {/* Logout Button */}
     <button

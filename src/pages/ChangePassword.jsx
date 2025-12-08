@@ -55,12 +55,12 @@ function ChangePassword() {
   return (
     <div className="py-9">
 
-      <p className="px-6 font-bold text-3xl text-[#57534e]">
+      <p className="px-6 font-bold text-xl md:text-2xl lg:text-3xl text-[#57534e]">
         Change <span className="text-[#ef4444]">Password</span>
       </p>
 
       <div className="px-6 py-4">
-        <p className="text-[#57534e]">
+        <p className="text-[#57534e] text-sm md:text-xl lg:text-sm">
           Enter your new password and confirm password.
         </p>
       </div>
