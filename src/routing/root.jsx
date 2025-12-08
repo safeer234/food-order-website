@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch,} from 'react-redux';
+
 import { changeBg } from '../features/toggle/ToggleSlice';
 import {  showLogin } from '../features/login and signup/LoginSlice';
 import { showSign } from '../features/login and signup/SignupSlice';
@@ -34,13 +35,16 @@ useEffect(() => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
  if (savedUser && isLoggedIn) {
-  const isAdmin = savedUser.role === "admin";
-  dispatch(loginSuccess({ user: savedUser, isAdmin }));
+  const isUser = savedUser.role === "user";
+  dispatch(loginSuccess({ user: savedUser, isUser }));
   setLoggedUser(savedUser);
 } else {
   dispatch(logOut());
   setLoggedUser(null);
   dispatch(showLogin());
+   
+ 
+ 
 }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -181,6 +185,7 @@ useEffect(() => {
         dispatch(logOut());
         dispatch(showLogin());
         setIsOpen(false);
+        
       }}
       className="bg-red-500 text-white py-1 rounded-md hover:bg-red-600"
     >

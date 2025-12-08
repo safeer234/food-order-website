@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch,} from 'react-redux'
 import { useState } from 'react';
 import { hideLogin} from '../features/login and signup/LoginSlice'
 import { loginSuccess } from '../features/login and signup/LoginSlice';
@@ -37,6 +37,7 @@ const handleSubmit = (e) => {
   localStorage.setItem("user", JSON.stringify(user));
   dispatch(loginSuccess());
   alert("Login Successful!");
+  window.location.href = "/home"; 
 
  
 
