@@ -24,6 +24,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AddAddress from './pages/AddAddress.jsx';
+import ChangePassword from './pages/ChangePassword.jsx';
 
 
 
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
         { path: "/profile", element: <Profile /> },
         { path: "/editprofile", element: <EditProfile /> },
          { path: "/addaddress", element: <AddAddress /> },
+          { path: "/changepassword", element: <ChangePassword /> },
     ],
   },
 ]);

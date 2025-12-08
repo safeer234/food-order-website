@@ -97,8 +97,11 @@ function Profile() {
                 <div>
 
                      <div className='flex gap-3 px-3 items-center mb-3 '>
-                        <i className='bx text-2xl text-[#ef4444]  bx-lock' ></i> 
-                    <p className='text-xl hover:text-[#ef4444]'>Change Password</p>
+                        <i className='bx text-2xl text-[#ef4444]  bx-lock' ></i>
+                        <Link to='/changepassword'>
+                          <p className='text-xl hover:text-[#ef4444]'>Change Password</p>
+                            </Link> 
+                  
                 </div>
                 <hr className='lg:w-156 text-gray-300' />
 
