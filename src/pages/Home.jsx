@@ -7,7 +7,7 @@ import homefoodimg1 from '../assets/images/homefoodimg/1000_F_1599070058_g1P7zQo
 import homefoodimg2 from '../assets/images/homefoodimg/1000_F_726813091_9yK4aWhJXPs3gz594mdxRxZ1akTUOinC.jpg'
 import homefoodimg3 from '../assets/images/homefoodimg/1000_F_300233026_dIJcI3ry93imSyDqHM0z4naEGaTedJ07.jpg'
 import { Link } from 'react-router-dom'
-import { motion as MOTION } from "framer-motion";
+
 
 
 
@@ -15,11 +15,7 @@ function Home() {
     
    
     return (
-        <MOTION.div  className="flex-1"
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}>
+        <div>
 
             {/* Hero Section with heading, text and buttons */}
             <div className='block sm:block md:block lg:flex gap-30'>
@@ -163,7 +159,7 @@ function Home() {
                 </div>
             </div>
 
-        </MOTION.div>
+        </div>
     )
 }
 

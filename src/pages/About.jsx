@@ -1,15 +1,10 @@
 import React from 'react'
 import aboutimg1 from '../assets/images/aboutimg/1000_F_1631041094_4Fn8EfEg3b2Xvr1wAIrXwdvyDKqz2CzO.jpg'
 import aboutimg2 from '../assets/images/aboutimg/1000_F_1629502759_8V0VEiFIYIHJi8sy2BCjfqmsU5k3Ocu9.jpg'
-import { motion as MOTION } from "framer-motion";
+
 function About() {
   return (
-    <MOTION.div
-             
-              initial={{ opacity: 0, y: -80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}>
+    <div>
       <div className=' block md:block  lg:flex py-27 items-center gap-90 justify-center'>
         <div className='text-center'>
            <h1 className='text-5xl px-0 md:px-68 lg:px-0  lg:border-4  w-90 h-30 sm:text-4xl  rounded-2xl duration-300 ease-linear  md:text-7xl lg:text-8xl hover:bg-[#d6d3d1] text-[#ef4444] font-semibold'>
@@ -85,7 +80,7 @@ function About() {
 
       </div>
       
-    </MOTION.div>
+    </div>
   )
 }
 
